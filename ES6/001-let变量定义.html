@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-let变量定义</title>
+	<script src="js/jquery-1.12.4.js"></script>
+</head>
+<body>
+	<button></button>
+	<button></button>
+	<button></button>
+	<button></button>
+</body>
+<script>
+	 /*var name = 'tom';
+	 var name = 'leo';
+	 console.log(name);*/  //覆盖
+
+	 /*console.log(name);
+	 var name = 'tom';*/ //有声明的提升
+
+	 /*console.log(name);
+	 let name = 'tom';*/  // 不会有声明的提升 name is not defined
+
+	 /*let name = 'tom';
+	 let name = 'leo';
+	 console.log(name);*/ //Identifier 'name' has already been declared
+	                    // 标识符顶部已被声明
+
+	 /*{
+	 	var name = 'tom';
+	 	let names = 'leo';
+	 	console.log('in:',names);
+	 }
+	 console.log(name); 
+	 console.log('out:',names);*/  //names isn't defined 
+
+	 /*function Name(){
+        var age = '10';
+        console.log(age);
+        function Name2(){
+        	age = '20'
+        	console.log(age);
+        }
+        Name2();
+	 }
+	 Name();*/    // 10  20  
+
+	 /*function Name(){
+        let age = '10';
+        console.log(age);
+        function Name2(){
+        	age = '20'
+        	console.log(age);
+        }
+        Name2();
+	 }
+	 Name();*/ 
+
+	 var oBtn = document.getElementsByTagName('button');
+	 //console.log(oBtn);
+	 for(var i=0; i<oBtn.length; i++){
+	 	oBtn[i].onclick(){
+
+	 	}
+	 }           
+</script>
+</html>

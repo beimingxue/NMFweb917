@@ -1,0 +1,112 @@
+//设置rem的基准值
+@rem:32;
+
+.rem(@attr,@px1){
+   @{attr}:unit(@px1 / @rem,rem);
+}
+.rem(@attr,@px1,@px2){
+   @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3){
+   @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3,@px4){
+   @{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem) unit(@px4 / @rem,rem);
+}
+
+//公共变量
+@border-color: #e5e5e5;
+
+.header{
+   .rem(height,45);
+   .rem(line-height,45);
+   .rem(font-size,20);
+   .header-back{
+      .rem(width,45);
+      text-align: center;
+   }
+   .header-title{
+      display: inline-block;
+      .rem(width,200);
+      text-align: center;
+   }
+   border:1px solid @border-color;
+}
+.top{
+   .rem(height,45);
+   .rem(line-height,45);
+   .rem(font-size,14);
+   border-bottom: 1px solid @border-color;
+   .top-lf{
+      .rem(margin-left,40px);
+      float: left;
+      color: #878787;
+   }
+   .top-rg{
+      float: right;
+      .rem(margin-right,20px);
+      color: red;
+   }
+}
+.top2{
+   .rem(height,45);
+   .rem(line-height,45);
+   .rem(font-size,15);
+   border-bottom: 1px solid @border-color;
+   .top2-lf{
+      .rem(margin-left,40px);
+      float: left;
+      color: #878787;
+   }
+   .top2-rg{
+      .rem(margin-left,10px);
+      font-weight: bold;
+   }
+}
+.top3{
+   .rem(height,45);
+   .rem(line-height,45);
+   .rem(font-size,12);
+   border-bottom: 1px solid @border-color;
+   .top3-lf{
+      .rem(margin-left,10px);
+      float: left;
+      color: #878787;
+   }  
+}
+.main{
+   .rem(height,140);
+   .rem(line-height,45);
+   .rem(font-size,14);
+   border-bottom: 1px solid @border-color;
+   .main1{
+      .main1-top{
+         .rem(height,100);
+         i{
+            .rem(width,60);
+         }
+         .main1-img{
+           .rem(height,80);
+         }
+         .main1-rg{
+            float: right;
+           .main1-sp{
+
+           }
+           .main1-my{
+             
+           } 
+         }         
+      }
+      .main1-bottom{
+          .rem(height,40);
+          .rem(line-height,40);
+          .rem(margin-left,40);
+          .rem(font-size,13);
+          color: #878787;
+          .main1-lg{
+            float: right;
+          }
+      }
+   }
+}

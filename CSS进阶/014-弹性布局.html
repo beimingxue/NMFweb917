@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-弹性布局</title>
+	<style>
+		.father{
+			width: 500px;
+			height: 500px;
+			border: 1px solid red;
+			margin: 20px auto;
+			display: flex;   /* 块状元素 */
+			/* flex-direction: row; */       /*水平方向,起点在左端 */
+			/* flex-direction: row-reverse; */  /*水平方向,起点在右端 */
+			/* flex-direction: column; */
+			flex-direction: column-reverse;
+		}
+		.son1{
+			width: 100px;
+			height: 50px;
+			background-color: red;
+	
+		}
+		.son2{
+			width: 150px;
+			height: 50px;
+			background-color: blue;
+			
+		}
+		.son3{
+			width: 120px;
+			height: 50px;
+			background-color: yellow;
+		
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">son1</div>
+		<div class="son2">son2</div>
+		<div class="son3">son3</div>
+	</div>
+</body>
+</html>

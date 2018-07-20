@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-函数的参数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function Rectangle(width, height) {
+      this.width = width || 200;
+      this.height = height || 300;
+    }*/
+
+   /* function calc(x=0, y=0) {
+       // ...
+       console.log(x, y)
+    }
+    function ajax(url, async=true, dataType="JSON") {
+      // ...
+       console.log(url, async, dataType)
+    }
+    console.log(calc.length); // 0
+    console.log(ajax.length); // 1*/
+
+    function show(name,msg='20'){
+    	console.log(msg,name);
+    }
+    show('tom');
+
+    function foo({x, y = 5} = {}) {
+       console.log(x, y);
+     }
+    foo() // undefined 5
+
+    function add(){
+    	let sum = 0;
+    	for(var )
+    }
+</script>
+</html>

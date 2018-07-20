@@ -1,0 +1,59 @@
+/* 多行注释 编译后保留 */
+
+//变量的定义
+@color: #345;
+@w: 100px;
+@h: 100px;
+@bw: 20px;
+//单行注释 编译后删除
+body{
+	background: #456;
+}
+h2{
+	color: @color;
+}
+a:hover{
+	color: @color;
+};
+//变量的引用
+.box1{
+  width: @w;
+  height: @h;
+  background: red;
+  margin-bottom: 10px;
+}
+.box2{
+	.box1();
+	background: #789;
+}
+.box3{
+	.box1();
+	border-radius: 10%;
+}
+/* .triangle{
+   width: 0;
+   height: 0;
+   overflow: hidden;
+
+   border-width: 10px;
+   border-color: red yellow blue green;
+   border-style: solid;
+} */
+
+.triangle{
+   width: 0;
+   height: 0;
+   overflow: hidden;
+
+   border-width: 10px; 
+   border-color:   yellow transparent transparent transparent;
+   border-style: solid;
+}
+
+//给混合添加！important 混合中所有的属性都有!important
+.box8{
+	.box1 !important;
+}
+
+
+

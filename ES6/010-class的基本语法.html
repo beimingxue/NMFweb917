@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-class的基本语法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function Person(name,age){
+        this.name = name;
+        this.age = age;
+	}
+	Person.prototype = {
+        constructor:Person,
+	    showName:function(){
+			console.log("I am "+ this.name);		
+		},
+		showAge:function(){
+			console.log("I am "+ this.age + " years old");
+		}	
+	}
+	var p = new Person('tom',18);
+	console.log(p);
+	p.showName();
+	p.showAge();*/
+
+	class Person{
+       constructor(name,age){
+          this.name = name;
+          this.age = age;
+       }
+       showName(){
+       	 console.log("I am "+ this.name);
+       }
+       showAge(){
+       	 console.log("I am "+ this.age + " years old");
+       }
+       isAce(){
+         console.log('aaa...');
+       }
+	}
+	let p = new Person('tom',18);
+	console.log(p);
+	p.showName();
+	p.showAge();
+	p.isAce();
+
+
+</script>
+</html>

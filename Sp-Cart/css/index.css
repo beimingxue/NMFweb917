@@ -1,0 +1,85 @@
+.header {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.625rem;
+  border: 1px solid #e5e5e5;
+}
+.header .header-back {
+  width: 1.40625rem;
+  text-align: center;
+}
+.header .header-title {
+  display: inline-block;
+  width: 6.25rem;
+  text-align: center;
+}
+.top {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.top .top-lf {
+  margin-left: 1.25rem;
+  float: left;
+  color: #878787;
+}
+.top .top-rg {
+  float: right;
+  margin-right: 0.625rem;
+  color: red;
+}
+.top2 {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.46875rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.top2 .top2-lf {
+  margin-left: 1.25rem;
+  float: left;
+  color: #878787;
+}
+.top2 .top2-rg {
+  margin-left: 0.3125rem;
+  font-weight: bold;
+}
+.top3 {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.375rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.top3 .top3-lf {
+  margin-left: 0.3125rem;
+  float: left;
+  color: #878787;
+}
+.main {
+  height: 4.375rem;
+  line-height: 1.40625rem;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.main .main1 .main1-top {
+  height: 3.125rem;
+}
+.main .main1 .main1-top i {
+  width: 1.875rem;
+}
+.main .main1 .main1-top .main1-img {
+  height: 2.5rem;
+}
+.main .main1 .main1-top .main1-rg {
+  float: right;
+}
+.main .main1 .main1-bottom {
+  height: 1.25rem;
+  line-height: 1.25rem;
+  margin-left: 1.25rem;
+  font-size: 0.40625rem;
+  color: #878787;
+}
+.main .main1 .main1-bottom .main1-lg {
+  float: right;
+}

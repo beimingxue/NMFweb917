@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-扩展运算</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*let arr = {
+		a:1,
+		b:2
+	}
+	console.log(arr);*/
+	/*var arr = [0,1,2];
+	var arr = [0,1,2,3];
+	console.log(arr);*/
+
+	/*let arr = [0,1,2];
+	let arr = [0,1,2];
+	console.log(arr);*/
+
+	/*let [a,b,c,d] = [1,2,3,4];
+	console.log(a,b,c,d);*/
+
+	/*let [a,b,c,d=55] = [1,2];
+	console.log(a,b,c,d);*/	//1 2 undefined 55
+    
+    /*let [a,[b,c],d] = [1,[2,3],4];
+	console.log(a,b,d);*/
+
+	/*function sum(){
+		for(var i=0; i<arguments.length; i++){
+           
+		}
+	}
+	var arr = [11,22,33,44]
+	sum();
+*/
+
+  /*function baseFunction({ a, b }) {
+	 // ...
+  }
+  function wrapperFunction({ x, y, ...restConfig }) {
+	//  使用 x 和 y 参数进行操作
+	//  其余参数传给原始函数
+	return baseFunction(restConfig);
+  }*/
+
+   /*let z = {a:3,b:4};
+   let n = {...z};
+   console.log(n);*/
+   
+   /*let arr = {
+   	name:'tom',
+   	age:'11'
+   ,t2:{
+   	name:'ace',
+   	age:'12'
+    }
+  }
+   arr.name = 'tgp';
+   arr.t2.name = 'agp';
+   console.log(arr);*/
+
+   /*let a = 'aa';
+   //let aClone = {...a };
+   //等同于
+   let aClone = Object.assign({},a);
+   console.log(aClone);*/
+
+   /*let s = new Set();
+   let arr = [11,22,33,44];
+   //console.log(typeof s);
+   //console.log(typeof arr);
+   //console.log(s);
+   //s.add(11);
+   //s.add(22);
+   //console.log(s);
+   s.delete(33);*/
+
+   let arr = [11,22,33,44,33,22];
+   let s = new Set(arr);  //去除数组重复元素
+
+   let arr2 = [...s];
+   //console.log('#:',typeof arr2);
+   console.log(arr);
+   console.log(s);
+   console.log(arr2);
+
+
+
+</script>
+</html>

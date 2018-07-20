@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>005-屏幕适配.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html{
+			font-size: 15px;
+		}
+		img{
+			float: left;
+			width: 40rem;
+		}
+		h1{
+			font-size: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="img/3.png" alt="">
+		<h1>啦啦啦啦啦啦啦啦啦啦啊</h1>
+	</div>
+</body>
+<script>
+	(function(win,doc){
+		function rfFontSize(){
+		   var oRoot = document.getElementsByTagName('html')[0];
+           //console.log(oRoot);
+           var iWidth = doc.body.clientWidth || doc.document.clientWidth;
+           //console.log(iWidth);
+           var oFontSize = iWidth / 10;
+           oRoot.style.fontsize = oFontSize + 'px';
+		}    
+
+        win.addEventListener('resize',rfFontSize,false);
+        //win.addEventListener('load',rfFontSize,false);
+        doc.addEventListener('DOMContentLoaded',rfFontSize,false);
+	})(window,document);
+</script>
+</html>

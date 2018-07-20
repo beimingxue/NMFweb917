@@ -1,0 +1,53 @@
+/* 多行注释 编译后保留 */
+body {
+  background: #456;
+}
+h2 {
+  color: #334455;
+}
+a:hover {
+  color: #334455;
+}
+.box1 {
+  width: 100px;
+  height: 100px;
+  background: red;
+  margin-bottom: 10px;
+}
+.box2 {
+  width: 100px;
+  height: 100px;
+  background: red;
+  margin-bottom: 10px;
+  background: #789;
+}
+.box3 {
+  width: 100px;
+  height: 100px;
+  background: red;
+  margin-bottom: 10px;
+  border-radius: 10%;
+}
+/* .triangle{
+   width: 0;
+   height: 0;
+   overflow: hidden;
+
+   border-width: 10px;
+   border-color: red yellow blue green;
+   border-style: solid;
+} */
+.triangle {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 10px;
+  border-color: yellow transparent transparent transparent;
+  border-style: solid;
+}
+.box8 {
+  width: 100px !important;
+  height: 100px !important;
+  background: red !important;
+  margin-bottom: 10px !important;
+}

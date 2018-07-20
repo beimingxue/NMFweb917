@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Set</title>
+</head>
+<body>
+	
+</body>
+<script>
+	  /*let s = new Set();
+   let arr = [11,22,33,44];
+   //console.log(typeof s);
+   //console.log(typeof arr);
+   //console.log(s);
+   //s.add(11);
+   //s.add(22);
+   //console.log(s);
+   s.delete(33);*/
+
+   let arr = [11,22,33,44,33,22];
+   let s = new Set(arr);  //去除数组重复元素
+
+   let arr2 = [...s];
+   //console.log('#:',typeof arr2);
+   console.log(arr);
+   console.log(s);
+   console.log(arr2);
+
+</script>
+</html>
