@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery插件-book</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			overflow: hidden;
+		}
+		.container{
+			/* background: red; */
+			position: absolute;
+			left: 50%;
+			top: 50%;
+		}
+		.book{
+			width: 922px;
+			height: 600px;
+			position: absolute;
+			left: -500px;
+			top: -300px;
+			/* background: blue; */
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="turnjs4/lib/turn.js"></script>
+	<script>
+		$(function(){
+			$('.book').turn();
+		})
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="book">
+			<div style="background: url(turnjs4/samples/basic/pages/1.jpg)"></div>
+			<div style="background: url(turnjs4/samples/basic/pages/2.jpg)"></div>
+			<div style="background: url(turnjs4/samples/basic/pages/3.jpg)"></div>
+			<div style="background: url(turnjs4/samples/basic/pages/4.jpg)"></div>
+			<div style="background: url(turnjs4/samples/basic/pages/5.jpg)"></div>
+		</div>
+	</div>
+</body>
+</html>

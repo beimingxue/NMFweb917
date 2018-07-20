@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-免登陆提示框</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 20px;
+			border: 1px solid black;
+			display: none;
+			background: red;
+		}
+
+	</style>
+</head>
+<body>
+	<input type="checkbox" onmouseover="document.getElementById('box').style.display='block'"; onmouseout="document.getElementById('box').style.display='none'";>
+	<div id="box">免登陆</div>
+</body>
+</html>

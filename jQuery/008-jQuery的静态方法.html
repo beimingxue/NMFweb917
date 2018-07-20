@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-jQuery的静态方法</title>
+	<script src="js/jquery-1.12.4.js"></script> 
+	<script>
+		var oLi = document.getElementsByTagName('li');
+		//console.log(oLi);
+		var arr = [00,11,22,33,44];
+		var liArr = {0:'aaa',1:'bbb',2:'ccc',length:3};
+
+		/*oLi.forEach(function(value,index){
+			console.log(arr);
+			console.log(value + index);
+		})*/
+		/*arr.forEach(function(value,index){
+			console.log(value + index);
+		})*/
+		/*liArr.forEach(function(value,index){
+			console.log(liArr);
+		})*/
+
+		$.each(arr,function(index,value){
+            console.log(index + value );
+		})
+
+		arr.map(function(value,index){
+			console.log(arr);
+		})
+		/*oLi.map(function(value,index){
+			console.log(oLi);
+		})*/
+		/*liArr.map(function(value,index){
+			console.log(liArr);
+		})*/
+
+
+	</script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

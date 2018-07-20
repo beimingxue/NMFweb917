@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-数组</title>
+	<script>
+		var arr = [45,16,87,78,31];
+		console.log(arr);
+		var res = arr.forEach(function(value,index){
+			console.log("index" + index + "::" + value);
+		});
+		console.log(res);
+
+		/*var res1 = arr.map(function(value,index){
+			console.log("index" + index "::" + value);
+		})
+		console.log(res1);*/
+
+		var res3 = arr.filter(function(value){
+			//return 0;
+			//return 10;
+			return value = 10;
+		});
+		console.log(res3);
+
+		var res4 = arr.every(function(value,index){
+			return value > 60;
+		})
+		console.log(res4);
+
+		var res5 = arr.some(function(value,index){
+			return value >= 87;
+		})
+		console.log(res5);
+ 
+		
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

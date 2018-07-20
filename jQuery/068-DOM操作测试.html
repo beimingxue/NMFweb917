@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM操作</title>
+	<!-- <script src="js/jquery-1.12.4.js"></script> -->
+	<script src="js/kquery-1.0.2.js"></script>
+	<!-- <script src="js/kquery-1.0.1.js"></script> -->
+	<script>
+		$(function(){
+            $('button')[0].onclick = function(){
+            	//console.log($('div').addClass('divs'));
+            	//console.log($('.box1').empty());
+            	//console.log($('div').remove('.box1'));
+            	//console.log($('div').append('<p></p>'));
+            	console.log($('div').prepend('<p></p>'))
+            	//console.log($('div').)
+            }
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div class="box1">222</div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

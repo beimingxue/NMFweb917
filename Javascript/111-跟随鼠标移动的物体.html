@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跟随鼠标移动的物体</title>
+	<style>
+	     *{
+	     	margin: 0;
+	     	padding: 0;
+	     }
+		 #div1{
+		 	width: 100px;
+		 	height: 100px;
+		 	background: red;
+		 	position: absolute;
+		 }
+		body{
+			height: 3000px;
+		} 
+	</style>
+	<script>
+		 window.onload = function(){
+		 	 var oDiv1 = document.getElementById('div1');
+             document.onmousemove = function(ev){
+             	  var oEvent = ev || event;
+             	 //console.log('X:',event.clientX);
+             	 //console.log('Y:',event.clientY);
+             	  console.log(event.clientX+","+event.clientY);
+             	  oDiv1.style.left = oEvent.clientX + 'px';
+             	  oDiv1.style.top = oEvent.clientY + 'px';
+
+             }
+		 }
+	</script>
+</head>
+<body>
+	  <div id="div1"></div>
+</body>
+</html>

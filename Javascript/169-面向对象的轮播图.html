@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象的轮播图</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.leftBtn,.rightBtn{
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align:  center;
+			background: rgba(0,0,0,0.5);
+			color: #fff;
+			font-size: 20px;
+			position: absolute;
+	        top: 50%;
+	        margin-top: -15px;
+	        cursor: pointer;
+		}
+		.leftBth{
+			left: 0;
+		}
+		.rightBtn{
+			right: 0;
+		}
+		.bottomBtn{
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+		}
+		.bottomBtn li{
+			width: 20px;
+			height: 20px;
+			background: rgba(0,0,0,0.5);
+			
+			float: left;
+			margin-right: 10px;
+			border-radius: 50%;
+
+		}
+        .bottomBtn li.active{
+        	background: rgba(255,255,0,0.5);
+        }
+	</style>
+
+</head>
+<body>
+	<div id="div1">
+		
+	</div>
+</body>
+<script>
+	function carousel(option){
+		//罗列属性
+          this.oBox = document.getElementById(option.id);   
+          this.oImgUl = null; //1.1
+          this.aImg = option.aImg;
+          this.width = option.width;
+          this.height = option.height;  //3.1
+          this.leftBtn = null;
+          this.rightBtn = null;
+          this.oBottomBtn = null;
+          this.now = 0;
+
+
+
+		//初始化
+          this.init();
+		//绑定事件
+		  this.bindEvent();
+	}
+    carousel.prototype.init = function(){
+    	//1.创建放图片的ul容器
+    	this.oBox.style.width = this.width + 'px';  //3.2
+    	this.oBox.style.height = this.height + 'px';
+    	this.oBox.style.position = 'relative';
+        this.oImgUl = document.createElement('ul');
+        for(var i=0; i<this.aImg.length; i++){  //传图片 
+            var oLi = document.createElement('li'); //有多少图片 创建多少li
+            var oImg = document.createElement('img'); //添加img
+            oLi.style.position = 'absolute';
+            oLi.style.top = 0;
+            oLi.style.left = 0;
+            oLi.style.opacity = 0.5;
+            oLi.style.zIndex = 0;
+            //默认显示第一张,,,,,,之后传递参数
+            if(i==0){
+            	oLi.style.opacity = 1;
+            	oLi.style.zIndex = 50;
+            }else{
+                oLi.style.opacity = 0.5;
+                oLi.style.zIndex = 0;
+            }
+            oImg.style.width = this.width + 'px'; //3.3
+            oImg.style.height = this.height + 'px';
+            oImg.src = this.aImg[i];//修改src 地址
+            oLi.appendChild(oImg); //img添加到li
+            this.oBox.appendChild(oLi);   //把li添加到当前ul中
+        }
+        //console.log(this.aImg);
+        //左右按钮；
+        this.leftBtn = document.createElement('span');
+        this.rightBtn = document.createElement('span');
+        this.leftBtn.className = 'leftBtn';
+        this.rightBtn.className = 'rightBtn';
+        this.leftBtn.style.zIndex = 999;
+        this.rightBtn.style.zIndex = 999;
+        this.leftBtn.innerHTML = '&lt;';
+        this.rightBtn.innerHTML = '&gt;';
+
+        //底部按钮;
+        this.oBottomBtn = document.createElement('ul');
+        this.oBottomBtn.className = 'bottomBtn';
+        this.oBottomBtn.style.zIndex = 999;
+         for(var i=0; i<this.aImg.length; i++){
+         	var oLi = document.createElement('li');
+         	if(i == 0){
+         		oLi.className = 'active';
+         	}
+         	
+         	this.oBottomBtn.appendChild(oLi);
+         }    //循环添加li
+        //把按钮添加到顶级父容器中
+        this.oBox.appendChild(this.leftBtn);
+        this.oBox.appendChild(this.rightBtn);
+        //
+        this.oBox.appendChild(this.oBottomBtn);
+        //给底部按钮容器添加ml,使其水平居中
+        this.oBottomBtn.style.marginLeft = - this.oBottomBtn.offsetWidth 
+        * 0.5 + 'px';
+        //把ul容器添加到顶层父容器中
+        this.oBox.appendChild(this.oImgUl);
+    }
+    carousel.prototype.bindEvent = function(){
+    	//点击显示下一张
+    	 this.rightBtn.onclick = function(){
+    	 	//改变所有的li
+              for(var i=0; i<this.oImgUl.children.length; i++){
+              	this.oImgUl.children[i].style.zIndex = 0;
+              	this.oImgUl.children[i].style.opacity = 0.5;
+              }
+              //改变下一张
+              this.now++;
+              this.oImgUl.children[this.now].style.zIndex = 50;
+              this.oImgUl.children[this.now].style.opacity = 1;
+    	 }.bind(this);
+    }
+	new carousel({
+		id:'div1',
+		aImg:[
+		'images/xiaomi01.jpg',
+		'images/xiaomi02.jpg',
+		'images/xiaomi03.jpg'
+		],
+		width:1226,
+		height:500   //opation 
+	});
+</script>
+</html>

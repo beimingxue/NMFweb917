@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内容排序</title>
+	<script>
+		 window.onload = function(){
+		 	 var oBtn = document.getElementById('btn');
+		 	 var oUl1 = document.getElementById('ul1');
+		 	 var oUl2 = document.getElementById('ul2');
+             var aLi = oUl1.children;
+		 	 oBtn.onclick = function(){
+		 	 	 var arr = [];
+		 	 	 for(var i =0; i<aLi.length; i++){
+		 	 	 	  arr.push(aLi[i]);
+		 	 	 }
+		 	 	 arr.sort(function(oLi1,oLi2){
+		 	 	 	  n1 = oLi1.innerHTML;
+		 	 	 	  n2 = oLi2.innerHTML;
+		 	 	 	 return n1-n2;
+		 	 	 })
+		 	 	 for(var i =0; i<arr.length; i++){
+                      oUl1.appendChild(arr[i]);
+		 	 	 }
+
+		 	 }
+		 }
+	</script>
+</head>
+<body>
+	<input type="button" id="btn">
+	<ul id="ul1">
+		<li>77</li>
+		<li>44</li>
+		<li>3</li>
+		<li>66</li>
+	</ul>
+	<ul class="ul2">
+		
+	</ul>
+</body>
+</html>

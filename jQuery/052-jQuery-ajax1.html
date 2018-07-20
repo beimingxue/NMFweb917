@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax1</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('button').click(function(){
+				$.ajax({
+					url: 'http://127.0.0.1:3000.',
+					type:'GET'
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>点击</button>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冲突解决</title>
+	<script>
+		(function(w){
+			function test(){
+				alert('bbb');
+			}
+			w.$ = test;   
+		})(window)
+	</script>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		jQuery.noConflict();
+
+		jQuery(function(){
+			alert('aaa');
+		});
+		$(function(){
+			alert('ccc');
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

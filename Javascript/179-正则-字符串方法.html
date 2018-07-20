@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-字符串方法</title>
+	<script>
+		var str = 'abcadf';
+		var str1 = 'a1b2c3d4';
+		var str2 = 'adsd2018-5-13da';
+		var reg = /(\d{4})-(\d{2})-(\d{2})/g;
+
+		console.log('1::',str.search(/z/));  //返回第一个匹配结果的index,查不到返回-1 
+		console.log('2::',str.search(/a/g));
+
+		console.log('3::',str.match(/a/)); //非全局匹配的结果和exec一样
+		console.log('4::',str.match(/z/g));  //全局 没有返回null 
+		console.log('5::',str.match(/a/g)); //有的话返回一个数组
+		//console.log('6::',str2.match(reg));  //?????????????????????
+		//console.log('7::',reg.exec(str2);   //??????????????????????????????
+       
+		console.log('8::',str.split(/\d/)); //一个数组
+		console.log('9::',str1.split(/\d/)); //分割成多个数组
+
+		console.log('10::',str1.replace(/\d/g,'*')); 
+		console.log('11::',str1.replace(/\d/g,function(match){
+                return parseInt(match) + 1;
+		}))  //回调函数
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件-表单事件</title>
+	<style>
+		#list li{
+			list-style: none;
+			width: 200px;
+			height: 30px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oInput = document.getElementById('username');
+			var oTxt = document.getElementById('txt');
+			var oSub = document.getElementById('sub');
+			var oList = document.getElementById('list');
+			var data = ['Tom','Tim','Tes','Amy'];
+			var isloaded = false;
+			oInput.onfocus = function(){
+                oTxt.style.color = 'green';
+                oTxt.innerHTML = '输入3-6位用户名';
+			}
+			oInput.onblur = function(){
+				var l = oInput.value.length;
+				if(l>=3 && l<=6){
+					oTxt.style.color = 'green';
+                    oTxt.innerHTML = '输入正确';
+                    isloaded = true;
+				}else{
+					oTxt.style.color = 'red';
+				    oTxt.innerHTML = '输入的用户名有误';
+				}		
+			}
+			     oSub.onclick = function(){
+			     	if (!isloaded) {
+			     		return false;
+			     	}
+			
+			}
+			oInput.oninput = function(){
+				for(var i=0; i<data[i].length; i++){
+			       var oLi = document.createElement('li');
+			       oLi.innerHTML = data[i];
+			       oList.appendChild(oLi);
+			  }
+
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<form action="https://www.kuazhu.com">
+		<p>
+			<input type="text" name="username" id="username">
+			<span id="txt"></span>
+			<ul id="list">
+				<li></li>
+			</ul>
+		</p>
+		<p><input type="submit" value="提交" id="sub"></p>
+	</form>
+</body>
+</html>

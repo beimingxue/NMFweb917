@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去除重复元素</title>
+	<script>
+		 var arr = [45,45,36,77,32,36,99];
+         function removeDup(arr){
+         	 var result = [];
+
+             for(var i =0; i<arr.length; i++){
+             	var iDup = false;
+                for(var j=0; j<result.length ;j++){
+                	if(arr[i] == result[j]){
+                       iDup = true;
+                       break;
+                	}
+                }
+                 if(!iDup){
+                 	result.push(arr[i]);
+                 }
+             }
+             return result;
+         }
+         arr.sort(function(n1,n2){
+		  	 return n1-n2;
+		  })
+		console.log(arr);
+	    console.log(removeDup(arr));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

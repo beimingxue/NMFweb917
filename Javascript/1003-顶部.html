@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>103-顶部.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#div0{
+			 width: 100%;
+			 height: 100px;
+			 background: blue;
+		}
+		#div1{
+			width: 100%;
+			height: 0px;
+			background: red;
+			position: fixed;
+			top: 0;
+		}
+		#main{
+            width: 100%;
+            height: 3000px;
+		}
+	</style>
+	<script>
+
+		function animation(obj,attr,iTarget){
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function(){
+				var iSpeed = 0;
+				
+				var curr = parseFloat(getComputedStyle(obj,false)[attr]);
+				if(attr == 'opacity'){
+					curr = curr * 100;
+				}
+				if(curr > iTarget){
+					iSpeed = -10;
+				}else{
+					iSpeed = 10;
+				}
+				if(Math.abs(iTarget - curr) <= Math.abs(iSpeed)){
+					clearInterval(obj.timer);
+					if(attr == 'opacity'){
+						obj.style[attr] = iTarget / 100;
+					}else{
+						obj.style[attr] = iTarget + 'px';	
+					}
+					
+				}else{
+					if(attr == 'opacity'){
+						obj.style[attr] = (curr + iSpeed)/100; 
+					}else{
+						obj.style[attr] = curr + iSpeed + 'px';	
+					}
+				}
+			},30)
+		}
+	  var iShow = false;		
+	  window.onresize = window.onscroll = window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var iTop = document.body.scrollTop || document.documentElement.scrollTop;
+			var oMain = document.getElementById('main');
+
+         
+		if(iTop >= 100){
+				if(!iShow){
+					animation(oDiv,'height',100); 
+					iShow = true;
+
+                    oMain.style.marginTop = '100px';
+				   }
+				  			
+			}else{
+				if(iShow){
+                    animation(oDiv,'height',0);
+                    iShow = false;
+                    oMain.style.marginTop = '0px';
+				   }       
+             }
+
+            /*if(iTop >= 100){
+					animation(oDiv,'height',100); 
+					
+				  			
+			}else{
+				
+                    animation(oDiv,'height',0);                
+             }*/
+
+
+		}
+	</script>
+</head>
+<body>
+	<div id="div0"></div>
+	<div id="div1"></div>
+	<div id="main">233333</div>
+</body>
+</html>

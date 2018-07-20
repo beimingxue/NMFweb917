@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054-对象级别的插件1</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: #fff;
+			border: 1px solid black;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+	    /*(function($){
+	    	//console.log(!($.prototype.setColor = $.fn.setColor));
+	    	$.fn.setColor = function(options){
+			//console.log(this);
+			 var defaults = {
+                 color: 'red',
+			 }
+			 options = $.extend(defaults,options);
+             //this.css('color','red');
+            // this.css('color',options.color);
+            this.each(function(){
+            	this.style.color = options.color;
+            })
+		 }
+	    })(jQuery)*/
+	    (function($){
+	    	$.fn.extend({
+	    	  setColor:function(options){
+			
+			  var defaults = {
+                 color: 'red',
+			  }
+			  options = $.extend(defaults,options);
+              
+              this.each(function(){
+                this.style.color = options.color;
+              })
+		     }
+	    	})
+	    })(jQuery)
+	</script>
+	<script>
+	  /*  $.prototype.setColor = function(options){
+			//console.log(this);
+			 var defaults = {
+                 color: 'red',
+			 }
+			 options = $.extend(defaults,options);
+             //this.css('color','red');
+            // this.css('color',options.color);
+            this.each(function(){
+            	this.style.color = options.color;
+            })
+		}*/
+		$(function(){
+			$('button').click(function(){
+				//$('div').setColor('red');
+				//$('div').setColor();
+				$('div').setColor({
+					color: 'blue'
+				});
+			})
+		})
+	</script>
+</head>
+<body>
+	<button>点击</button>
+	<div>aa</div>
+	<div>bb</div>
+	<div>cc</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-闭包和原型构造对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+         this.name = name;
+         this.age = age;
+      
+
+	}
+	/*Person.prototype.showname = function(){
+		console.log(' I ' + ' am ' + this.name);
+	}
+	Person.prototype.showage = function(){
+		console.log(' I ' + ' am ' + this.age + 'years old');
+	}*/
+	(function(w){
+         Person.prototype = {
+         	constructor: Person,
+         	_proto_: Object.prototype,
+         	
+         	showname: function(){
+         		console.log(' I ' + ' am ' + this.name);
+         	},
+         	showage: function(){
+         		console.log(' I ' + ' am ' + this.age + 'years old');
+         	}
+         }
+         w.Person = Person;
+	})(window)
+	var p1 = new Person('tom',18);
+	p1.showname();
+	p1.showage();
+</script>
+</html>

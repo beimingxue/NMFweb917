@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包</title>
+	<script>
+		var name = 'tom';
+		function show(){  //子函数访问父函数的变量的现象 闭包
+			 var namel = 'loe';
+			 //console.log(name);
+			 /*function fn(){
+			   var name2 = 'cer';
+               console.log(namel);
+               console.log(name);
+               console.log(name2);
+			 }
+			 fn();*/
+			 return function(){
+			 	return namel;
+			 }
+		}
+		//show();
+		var fn = show()
+		console.log(fn());
+		//console.log(namel);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

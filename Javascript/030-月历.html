@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>月历</title>
+	<style>
+		.box{
+			width: 400px;
+			height: 600px;
+		    margin: 0 auto;
+			border: 1px solid black;
+			background: #5d5a5c;
+		}
+	 .huodong{
+			width: 150px;
+			height: 50px;
+			box-sizing: border-box;
+			margin-left: 30px;
+		}
+	 .clearfix:after{
+	       content: '';
+	       display: block;
+	       clear: both;
+	       height: 0px;
+	       visibility: hidden;
+      }
+      .clearfix{
+	        *zoom:1;
+     }
+		li{
+			list-style: none;
+			width: 100px;
+			height: 100px;
+			background-color: black;
+			color: white;
+			text-align: center;
+			line-height: 100px;
+			font-size: 30px;
+			font-weight: bold;
+			float: left;
+			margin-right: 18px;
+			margin-top: 20px;
+		}
+		.active{
+			background: white;
+			color: black; 
+		}
+	</style>
+   <script>
+   	    window.onload = function(){
+   	    	var aLi = document.getElementsByTagName('li');
+   	    	var oDiv = document.getElementById('huodong');
+   	    	var arr = ['去吃饭','quququ','fff'];
+   	    	 for(var i=0; i<aLi.length; i++){
+   	    	 	 aLi[i].index = i;
+   	    	 	 aLi[i].onmouseover = function(){
+   	    	 	       for(var j=0; j<aLi.length; j++){
+   	    	 	       	  aLi[j].className = ''; 
+   	    	 	       }
+   	    	 	 	 this.className = 'active';
+   	    	 	 	 oDiv.innerHTML = "<h2>"+(this.index+1)+"月</h2><p>"+arr[this.index]+"</p> ";
+   	    	 	 	}
+   	    	 	 }
+   	    	 }
+   	    
+   </script>
+</head>
+<body>
+	<div class="box">
+	
+			<ul class="clearfix">
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>11</li>
+				<li>12</li>
+			</ul>
+		
+		<div class="huodong">
+            <h2>1月</h2>
+			<p>踏青</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环的设置多个元素</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		  li{
+		  	 list-style: none;
+		  	 width: 200px;
+		  	 height: 200px;
+		  	 border: 1px solid red;
+		  	 float: left;
+		  	 margin-right: 20px;
+		  }
+	</style>
+
+	<script>
+		  window.onload = function(){
+		  	  var ali = document.getElementsByTagName('li');
+		  	  /*ali[0].style.background = 'red';
+		  	  ali[1].style.background = 'red';
+		  	  ali[2].style.background = 'red';*/
+              for(var i=0;i<ali.length;i++)
+              {
+              	
+                ali[i].style.background = 'red';
+              }
+
+		  }
+	</script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

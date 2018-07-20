@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>175-正则-匹配汉字</title>
+	<script>
+		var str = 'a在啊啊啊ab';
+		//console.log(str.charCodeAt(0)); //查看阿斯克码；
+		var reg = /[\u4e00-\u9fa5]+/g;
+		console.log(reg.test(str)); //str 里面有没有汉字 只要有汉字就能匹配到
+	    console.log(str.replace(reg,'*'));
+
+	    console.log(getLength(str));
+
+	    function getLength(str){
+	    	return str.replace(/[\u4e00-\u9fa5]/g,'bb').length;
+	    }
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

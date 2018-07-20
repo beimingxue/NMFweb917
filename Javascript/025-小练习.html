@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小练习</title>
+  <style>
+  	div{
+  		width: 200px;
+  		height: 200px;
+  		border: 1px solid red;
+  		display: none;
+  	}
+     .bt1{
+     	  background-color: yellow;
+     }
+  </style>
+  <script>
+  	   window.onload = function(){
+  	   	  var oBtn = document.getElementsByTagName('input');
+  	   	  var oDiv = document.getElementsByTagName('div');
+         for(var i=0; i<oBtn.length; i++){
+                   oBtn[i].index = i;
+                   oBtn[i].onclick = function(){
+                       for(var j=0; j<oBtn.length; j++){
+                             oBtn[j].className = '';
+                             oDiv[j].style.display = 'none'; 
+                       }
+                       this.className = 'bt1';
+                       oDiv[this.index].style.display = 'block';
+                   }
+         }
+
+  	
+     }
+    
+  </script>
+</head>
+<body>
+	<input type="button" value="按钮1" class="bt1">
+	<input type="button" value="按钮2" >
+	<input type="button" value="按钮3" >
+	<input type="button" value="按钮4" >
+
+	<div style="display: block;">1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+</body>
+</html>

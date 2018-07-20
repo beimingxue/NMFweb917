@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>170-正则-正则体验</title>
+	<script>
+		var str = 'das12 45 fag65d 456dasf 89dd ss66 ffg sd4';
+		/*var result = [];
+		var tmp = '';
+		for(var i=0; i<str.length; i++){
+			//console.log(str.charAt(i));  //拿到每个字符
+			if(!isNaN(parseInt(str.charAt(i)))){
+                  //console.log(str.charAt(i));
+                  tmp += str.charAt(i); //是数字中间变量+=
+			}else if(tmp){
+				result.push(tmp);
+				tmp = '';  //置空
+			}
+		}
+		if(tmp){
+			result.push(tmp);
+			tmp = '';
+		}  //最后一次出循环 判断一下
+		console.log(result);*/
+		var reg = /\d+/g;
+		console.log(str.match(reg));
+        
+
+        //pareInt 判断数字   isNaN 不是
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

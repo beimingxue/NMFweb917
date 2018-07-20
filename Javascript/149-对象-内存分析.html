@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象-内存分析</title>
+	<script>
+		function Person(name,age){  
+			this.name = name;   
+			this.age = age;       
+		}
+		 
+           	 Person.prototype.showName = function(){
+            	console.log('I am ' + this.name);
+             }
+          
+         
+           	 Person.prototype.showAge = function(){
+         	console.log('I am ' + this.age + ' years old');
+         }  
+      
+         
+        
+		var p1 =  new Person("tom",10);
+		p1.showName();
+		p1.showAge();
+	
+		var p2 =  new Person("amy",20);
+		p2.showName();
+		p2.showAge();
+	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

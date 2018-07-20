@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象原型测试</title>
+	<script>
+		function Person(name,age){   //构造函数
+			this.name = name;   
+			this.age = age;
+            /*this.showName = showName;
+            this.showAge = showAge;
+           /* return obj; */ //返回*/
+           if(!this.showName){
+           	 Person.prototype.showName = function(){
+            	console.log('I am ' + this.name);
+             }
+           }
+           if(!this.showAge){
+           	 Person.prototype.showAge = function(){
+         	console.log('I am ' + this.age + ' years old');
+         }  
+           }
+		}
+         
+        
+		var p1 =  new Person("tom",10);
+		p1.showName();
+		p1.showAge();
+		//console.log(typeof p1);
+		var p2 =  new Person("amy",20);
+		p2.showName();
+		p2.showAge();
+		console.log(p1.showName == p2.showName);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

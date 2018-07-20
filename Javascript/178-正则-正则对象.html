@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则对象</title>
+	<script>
+		//var reg = /abc/;
+		var reg = /\w/g;
+        console.log("1::",reg.lastIndex);//0
+        console.log("2::",reg.test('abc')); //true
+        console.log("3::",reg.lastIndex);//1
+        console.log("4::",reg.test('abc')); //true
+        console.log("5::",reg.lastIndex);//2
+        console.log("6::",reg.test('abc')); //true
+        console.log("7::",reg.lastIndex);//3
+        console.log("8::",reg.test('abc')); //false
+
+        var res = /\d/g;
+        console.log("11::",res.lastIndex);//0
+        console.log("12::",res.test('12')); //true
+        console.log("13::",res.lastIndex);//1
+        console.log("14::",res.test('12')); //true
+        console.log("15::",res.lastIndex);//2
+        console.log("16::",res.test('12')); //false
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

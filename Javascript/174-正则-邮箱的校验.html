@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-邮箱的校验</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">校验</button>
+</body>
+<script>
+	 var oTxt = document.getElementById('txt');
+	 var oBtn = document.getElementById('btn');
+	 oBtn.onclick = function(){
+	 	//870424431@qq.com
+	 	//数字字母下划线@字母 .com
+	 	// \w+ @ \w+ \. [a-z]{2,5}   ^前面 $后面 
+	 	//var reg = /\w+@\w+\.[a-z]{2,5}/;
+	 	//var reg = /^\w+@\w+\.[a-z]{2,5}$/;
+	 	//{}量子
+	 	var reg = /^\w+@\w+\.[a-z]{2,5}$/;
+	 	//var reg = /^\w+@\w+\.[a-z]{2,5}$/i;
+
+	 	if(reg.test(oTxt.value)){
+	 		alert('T');
+	 	}else{
+	 		alert('F');
+	 	}
+        
+	 }
+
+</script>
+</html>

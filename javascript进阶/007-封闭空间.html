@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封闭空间</title>
+	<script>
+	/*	(function(){
+
+		})();*/
+		(function(){
+			var abc = 'ad';
+			console.log(abc);
+		})();  //匿名函数的自我调用
+		var abc = 'ggg';
+		console.log(abc); //输出ad
+		                      //ggg 
+
+		
+		(function(){
+            var abc = 'ad';
+            console.log(abc);
+		})()
+		!
+		(function(){
+            var abc = 'af';
+            console.log(abc);
+		})()
+		+
+		(function(){
+            var abc = 'af';
+            console.log(abc);
+		})()
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

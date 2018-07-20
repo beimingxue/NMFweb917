@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封闭空间传参</title>
+	
+</head>
+<body>
+	<input type="button" id="btn">
+	<div></div>
+</body>
+<script>
+	/*(function(){
+         var oBtn = document.getElementById('btn');
+	     var oDiv = document.getElementsByTagName('div');
+	     oBtn.onclick = function(){
+            console.log('add');
+	    }
+	})();*/
+	(function(d,w){
+         var oBtn = d.getElementById('btn');
+	     var oDiv = d.getElementsByTagName('div');
+	     oBtn.onclick = function(){
+            console.log('add');
+	    }
+	    w.oBtn = oBtn;
+	})(document,window);
+	oBtn.onmouseover = function(){
+		console.log('sss');
+	}
+</script>
+</html>

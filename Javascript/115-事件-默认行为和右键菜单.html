@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>默认行为和邮件菜单</title>
+	<style>
+		#menu{
+			width: 100px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			display: none;
+		}
+	</style>
+	<script>
+		 window.onload = function(){
+		 	var oMenu = document.getElementById('menu');
+		 	 document.oncontextmenu = function(){
+		 	 	 alert(2);
+		 	 	 //return false;
+
+		 	 }
+		 }
+	</script>
+</head>
+<body>
+	<div id="menu"></div>
+</body>
+</html>

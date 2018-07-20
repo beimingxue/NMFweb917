@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>改变this指向</title>
+	<script>
+		function show(n1,n2){
+			console.log(this);
+		}
+		//show();
+		//show.call();
+		show.call({name:"tom"});
+		show.call({name:"tom"},200,300);
+
+		//show.apply();
+		show.apply({name:"tom"});
+		show.apply({name:"tom"},[200,300]);
+
+		//show.bind();
+		show.bind({name:"tom"});
+        var fn = show.bind({name:"tom"},500,600);
+        fn();
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

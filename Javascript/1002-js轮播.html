@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js轮播</title>
+	<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+ .carousel{
+  width: 800px;
+  height: 460px;
+  background: red;
+  position: absolute;
+  left:0;
+  top:0;  
+}
+.carousel .img-box li{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left:0;
+  top:0;
+}
+.carousel .img-box li img{
+  width: 100%;
+  height: 100%;
+}
+.leftArrow,.rightArrow{
+  display: inline-block;
+  width: 30px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+  position: absolute;
+  top:200px;
+  cursor: pointer;
+  z-index: 999;
+}
+.leftArrow:hover,.rightArrow:hover{
+  background: rgba(0,0,0,0.3);
+}
+.leftArrow{
+  left:234px;
+}
+.rightArrow{
+  right: 0;
+}
+	</style>
+  <script>
+      window.onload = function(){
+          var oLf = document.getElementById('');
+          var 
+      }
+  </script>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="img-box" id="imgBox">
+			<li style="z-index: 30"><img src="images/lunbo1.png" alt=""></li>
+			<li><img src="images/1.jpg" alt=""></li>
+			<li><img src="images/2.jpg" alt=""></li>
+		</ul>
+		<span class="leftArrow" id="olf">&lt;</span>
+		<span class="rightArrow" id="org">&gt;</span>
+    <ul class="btn-box" id="btnBox">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+    </ul>
+	 </div>
+</body>
+</html>

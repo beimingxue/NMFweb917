@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证插件</title>
+	<style>
+		label.error{
+			color: red;
+		}
+		input.error{
+			color: red;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="form/dist/jquery.validate.min.js">	
+	</script>
+	
+	<script>
+	 $(function(){
+	 	$('#reg').validate({
+	 		rules:{
+	 			username:{
+	 				required: true,
+	 				minlength: 2
+	 			}
+	 		},
+	 		messages:{
+	 			username:{
+	 				required: '用户名必须输入',
+
+	 			}
+	 		}
+
+	 	})
+	 })
+	</script>
+</head>
+<body>
+	<form action="http://www.kuazhu.com" id="reg">
+		<div>
+			用户名  ：<input type="text" name="username" id="username">
+		</div>
+		<div>
+			密    码：<input type="text" name="password" name="password">
+		</div>
+		<div>
+			个人主页：<input type="text" name="homepage" id="homepage">
+		</div>
+		<div>
+			<input type="submit" value="提交">
+		</div>
+	</form>
+</body>
+</html>

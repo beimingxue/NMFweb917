@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offsetleft</title>
+	<style>
+	   *{
+	   	margin: 0;
+	   	padding: 0;
+	   }
+	   #btn{
+	   	 width: 50px;
+	   }
+		#box{
+			width: 100px;
+			height: 100px;
+			/* border: 1px solid red; */
+			background: red;
+			position: absolute;
+			top: 100px;
+			left: 0;
+		}
+		.liner{
+			
+			width: 1px;
+			height: 600px;
+            border: 1px solid black;
+			position: absolute;
+			left: 300px;
+		}
+	</style>
+	<script>
+		 window.onload = function(){
+		 	 var oBtn = document.getElementById('btn');
+		 	 var oBox = document.getElementById('box');
+		 	var timer = null;
+		 	var iSpeed = 0;
+             
+             oBtn.onclick = function(){ 
+
+                  clearInterval(timer);
+
+                  if(oBox.offsetLeft < 300){
+                  	 iSpeed = 9;
+                  }else{
+                  	 iSpeed = -9;
+                  }
+                  timer = setInterval(function(){
+
+                  	if(Math.abs(oBox.offsetLeft) <= Math.abs(iSpeed)){
+                  		oBox.style.left = '300px';
+                  	    clearInterval(timer);
+                     }else{
+                  	 	 oBox.style.left = oBox.offsetLeft + iSpeed + 'px';
+                          }
+                  },40)
+             }
+		 }
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="动画">
+	<div id="box">
+		
+	</div>
+	<div class="liner"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象属性的定义</title>
+	<script>
+		var obj = {};
+		//console.log(obj);
+        Object.defineProperty(obj,"name",{
+        	value:"Tom",   //对象属性的默认值，默认值为undefined
+        	enumerable:true,  //对象属性是否可通过for-in循环，flase为不可循环， 
+        	writable:true,  //对象属性是否可修改,flase为不可修改，
+        	configurable:true //能否使用delete、能否修改属性特性、或能否修改访问器属性
+        });
+       // obj.name = "tom";
+        delete obj.name;
+       // console.log(obj.name);
+        for(key in obj){
+           console.log(obj[key]);
+           
+        }
+       // delete obj.name;
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

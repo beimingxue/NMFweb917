@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-替换单词</title>
+	<script>
+		var str = 'This is a dog';
+		console.log('::1',str.replace('is','*')); //replace只替换第一个
+
+        var res = /is/;
+        console.log('::2',str.replace(res,'*'));
+        var str2 = 'This is is a dog'
+        var reg = /\bis\b/g;    //单词分隔符 \b替换单独的 单词
+		console.log('::3',str2.replace(reg,'*'));
+
+	
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

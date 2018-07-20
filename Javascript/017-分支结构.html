@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js分支结构</title>
+	<style>
+		input{
+			display: inline-block;
+			width: 200px;
+			height: 50px;
+		}
+		div{
+			width: 500px;
+			height: 300px;
+			border: 2px solid red;
+		}
+	</style>
+	<script>
+		 window.onload = function(){
+		 	 var sdianji = document.getElementById('dianji');
+		 	 var schufa = document.getElementById('chufa');
+
+		 	 sdianji.onclick = function(){
+
+		 	 if(schufa.style.display == 'none'  ){
+                    schufa.style.display = 'block';
+		 	 }
+		 	  else{
+		 	  	  schufa.style.display = 'none';
+		 	  }
+		 }
+  }
+	</script>
+</head>
+<body>
+	<input type="button" id="dianji" value="点我">
+	<div id="chufa" style="display: none">我是显示的内容</div>
+</body>
+</html>

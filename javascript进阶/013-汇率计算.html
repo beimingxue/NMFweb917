@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-汇率计算</title>
+	<script>
+		//本币
+		(function(w){
+            function Local(name){
+               this.oInput = null;
+               this.foreigns = [];
+               this.init(name);
+            }
+            Local.prototype = {
+            	constructor: Local,
+            	//_proto_: Object.prototype,
+            	init:function(name){
+            		var oP = document.createElement('p');
+            		oP.innerHTML = name;
+                    this.oInput = document.createElement('input');
+                    oP.appendChild(this.oInput);
+            		document.body.appendChild(oP);
+            	},
+            	register:function(foreign){
+            		this.foreigns.push(foreign);
+            	},
+            	publish: function(){
+            		this.oInput.oninput = function(){
+            			for(var i =0; i<this.foreigns.length; i++){
+                              this.foreigns[i].listen(this.oInput.value);
+            			}bind(this);
+            		}
+            	}
+            }
+            w.Local = Local;
+		})(window);
+
+        //外币
+        (function(w){
+            function Foreign(name,rate,local){
+            	this.rate = rate;
+            	local.register(this);
+            	this.oInput = null;
+                this.init(nam);
+
+            }
+            Foreign.prototype = {
+            	constructor: Foreign,
+            	init:function(name){
+            		var oP = document.createElement('p');
+            		oP.innerHTML = name;
+                    this.oInput = document.createElement('input');
+                    oP.appendChild(this.oInput);
+            		document.body.appendChild(oP);
+            	},
+            	/*listen:function(val){
+            		this.oInput.value = val / this.rate;
+            	}*/
+
+            }
+            w.Foreign = Foreign;
+		})(window)
+
+		var res = new Local('人民币');
+		res.publish();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-jQuery自定义事件</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		//trigger
+		$(function(){
+            /* $('div').click(function(){
+             	alert('click');
+             })*/
+             /*$('div').myclick(function(){
+             	alert('click');
+             })
+             $('div').trigger('click');*/
+             $('div').on('myclick',function(){
+             	alert('myclick');
+             })
+             $('div').trigger('myclick');
+		})
+	</script>
+</head>
+<body>
+	<div>点击</div>
+</body>
+</html>

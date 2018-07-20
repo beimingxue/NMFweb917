@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-jQuery操作属性.html</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+            //console.log($('input').attr('value'));
+            //console.log($('input').prop('value'));
+            //console.log($('input').attr('name'));
+            //console.log($('input:eq(0)').attr('name','a2'));
+            //console.log($('input'));
+            //console.log($('input').removeAttr('class')); 
+            console.log($('input:last').removeClass(''));
+            console.log($('input').removeClass('a11 b11 c11'));
+
+
+		})
+	</script>
+</head>
+<body>
+	<input type="text" value="aaa" name="a1" class="a11">
+	<input type="text" value="bbb" name="b1" class="b11">
+	<input type="text" value="ccc" name="c1" class="c11">
+	<!-- <input type=""> -->
+</body>
+</html>

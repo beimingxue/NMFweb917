@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定义属性2</title>
+	<script>
+		var obj = {};
+		Object.defineProperty(obj,"name",{
+			value: "tom",
+			configurable: true
+		})
+		for(key in obj){
+			console.log(obj[key]);
+		}
+		Object.defineProperty(obj,"name",{
+			value: "tom",
+			enumerable: true   //对象属性是否可通过for-in循环，flase为不可循环
+		}) 
+		for(key in obj){
+			console.log(obj[key]);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

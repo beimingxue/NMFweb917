@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-jQuery对象和DOM对象转换</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+	/*	var $div = $('div');
+		//console.log($div);
+		$div.css  {
+			color: red
+		}*/
+		/*var oDiv = document.getElementsByTagName('div')[0];
+		console.log(oDiv);*/
+
+
+
+		$(function(){
+			var $div = $('div');
+			/*
+			$div.css({
+				color:'red'
+			})/*/
+			console.log($div);
+			// console.log($div[0]);
+			// var oDiv = $div[0];
+			var oDiv = $div.get(1);
+			oDiv.style.color = 'red';
+			// oDiv.css({
+			// 	color:'red'
+			// })
+			var oDiv3 = document.getElementById('div3');
+			var $div3= $(oDiv3);
+			$div3.css({
+				color:'blue'
+			})
+		})
+
+	</script>
+</head>
+<body>
+	<div>1111</div>
+	<div>2222</div>
+	<div>3333</div>
+</body>
+</html>

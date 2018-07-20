@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间对象</title>
+	<style>
+
+		#box{
+			width: 400px;
+			margin: 50px auto;
+
+		}
+		img{
+			font-size: 40px;
+		}
+	</style>
+	<script>
+		function tostr(n){
+             if(n<10){
+             	return "0" + n;
+             }else{
+             	return n;
+             }
+		}
+		 window.onload = function(){
+		 	var oBox = document.getElementById('box');
+		 	var aImg = document.getElementByTagName('img');
+            function timer(){
+              var now = new Date();
+              var h = now.getHours();
+              var m = now.getminutes();
+              var s = now.getseconds();
+
+              var str = tostr(h) + tostr(m) + tostr(s);
+              for(var i=0; i<oImg.length; i++){
+                      aImg[i].src = 'images/' + str.charAt(i) + 'png';     
+		         }
+                
+		    }   
+		      setInterval(timer,1000);
+              timer();
+		 }
+	</script>
+</head>
+<body>
+    <div id="box">
+    	<img src="images/1.png" alt="">
+	    <img src="images/0.png" alt="">
+	    :
+	    <img src="images/2.png" alt="">
+	    <img src="images/2.png" alt="">
+	    :
+	    <img src="images/5.png" alt="">
+	    <img src="images/6.png" alt="">
+
+    </div>
+	
+</body>
+</html>

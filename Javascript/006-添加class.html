@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加class属性</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+
+		}
+		.cl1{
+			background-color: red; 
+		}
+		.cl2{
+            display: none;
+		}
+	</style>
+	<script>
+		 function addclass(){
+              document.getElementById('box').className = 'cl1';	
+		 }
+		  function addclase(){
+              document.getElementById('box').className = 'cl2';	
+		 }
+
+	</script>
+</head>
+<body>
+	<div id="box"  onmousemove="addclass()" onmouseout="addclase()"></div>
+	
+</body>
+</html>

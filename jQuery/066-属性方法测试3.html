@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>066-属性方法测试3</title>
+	<style>
+		 .box1{
+		 	width: 100px;
+		 	height: 100px;
+		 	background: red;
+		 }
+		 .box2{
+		 	width: 200px;
+		 	height: 200px;
+		 	background: blue;
+		 }
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<!-- <script src="js/kquery-1.0.2.js"></script> -->
+	<script>
+		$(function(){
+           $('button')[0].onclick = function(){
+           	   //console.log($('div').css('width'));
+           	   //console.log($('div').css('width','300px'));
+           	   console.log($('div').hasClass('cccc'))
+           	   //console.log($('div').addClass('.box1'));
+
+
+           }
+		})
+	</script>
+</head>
+<body>
+	<button>测试</button>
+	<div class="box1 ccc">1</div>
+	<div class="box2">2</div>
+</body>                                                                                                                                            
+</html>

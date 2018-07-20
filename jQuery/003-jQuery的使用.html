@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-jQuery的使用</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		//方法1 window.onload等到页面全部加载完且只能执行一次
+		window.onload = function(){
+			alert('a');
+		};
+		window.onload = function(){
+			alert('b');
+		}
+
+		//方法2 当页面DOM结构加载完毕后执行回调函数,可多次执行
+		jQuery(document).ready(function(){
+			alert('fff');
+		});
+		jQuery(document).ready(function(){
+			alert('eee');
+		})
+        //方法3 
+        $(function(){
+        	alert('bbb');
+        });
+        $(function(){
+        	alert('ccc');
+        })
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

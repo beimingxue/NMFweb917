@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-jQuery选项卡</title>
+	<style>
+	  *{
+	  	margin: 0;
+	  	padding: 0;
+	  }
+		.btn li{
+          width: 80px;
+          height: 50px;
+          border: 1px solid black;
+          list-style: 20px;
+          float: left;
+          overflow: hidden;
+		}
+		.tn li{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+			display: none;
+		} 
+		.btn .active{
+			background: #466;
+		}
+		.tn .show{
+           display: block;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		//eq() 选择器选取带有指定 index 值的元素。 index 值从 0 开始，所有第一个元素的 index 值是 0（不是 1）         
+		$(function(){
+			$('.btn>li').mouseover(function(){
+				$(this).addClass('active');
+				$(this).siblings().removeClass('active');
+				var $index = $(this).index();
+				var $tn = $('.tn>li').eq($index);
+				$tn.addClass('show');
+				$tn.siblings().removeClass('show');
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul class="btn">
+		<li class="active">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<ul class="tn">
+		<li class="show">111</li>
+		<li>222</li>
+		<li>333</li>
+		<li>444</li>
+	</ul>
+</body>
+</html>

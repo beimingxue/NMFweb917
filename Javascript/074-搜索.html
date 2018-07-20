@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索</title>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementById('btn');
+			var otxt = document.getElementById('txt');
+			var oUl = document.getElementById('ul1');
+			var aLi = oUl.children;
+			oBtn.onclick = function(){
+				var sTxt = otxt.value.tolowerCase();
+				for(var i =0; i<aLi.length; i++){
+					
+					//var sTxt = otxt.value.tolowerCase();
+					if(aLi[i].innerHTML == otxt.value){
+						aLi[i].style.background = 'yellow';
+					}else{
+						aLi[i].style.background = '';
+					}
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="搜索">
+	<ul id="ul1">
+		<li>Emd</li>
+		<li>emf</li>
+		<li>gg</li>
+		<li>fsdf</li>
+		<li>梦菲</li>
+		<li>凯明</li>
+	</ul>
+</body>
+</html>

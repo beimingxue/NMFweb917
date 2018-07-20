@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-过滤HTML</title>
+</head>
+<body>
+	<textarea name="" id="txt1" cols="30" rows="10"></textarea>
+	<input type="button" id="btn" value="过滤">
+	<textarea name="" id="txt2" cols="30" rows="10"></textarea>
+</body>
+<script>
+	 var oTxt1 = document.getElementById('txt1');
+	 var oBtn = document.getElementById('btn');
+	 var oTxt2 = document.getElementById('txt2');
+     oBtn.onclick = function(){
+          var str = oTxt1.value;
+          //<任意的字符>
+          // \w 英文字符 数字
+          // ^求反
+          //var reg = /<\w>/;  //英文字符数字  只有一个
+          //var reg = /<\w+>/; //多个字符 
+          //var reg = /<\w+>/g; //多个字符 全局
+          // <\w>  <\w+>  <[\w|\/]> <[\w|\/]+>  
+          var reg = /<[\w|\/]+>/g; //结束标签
+          //var reg = /<[^<>]+>/g;  //求反
+          oTxt2.value = str.replace(reg,'*');
+     }
+
+</script>
+</html>

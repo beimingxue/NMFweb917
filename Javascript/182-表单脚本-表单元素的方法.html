@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素的方法</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com" id="form1">
+		<div>
+			姓名：<input type="text" name="username" id="username" value="姓名">
+		</div>
+		<div>
+			<input type="text" id="age">
+		</div>
+		<div id="sex">
+			性别：<input type="radio"  id="sex" value="女" >
+			     <input type="radio"   id="sex" value="男" >
+			     
+		</div>
+		<div>
+			<input type="checkbox">
+			<input type="checkbox">
+			<input type="checkbox">
+		</div>
+		<div>
+			<select name="" id="city">
+				<option value="北京">北京</option>
+				<option value="上海">上海</option>
+				<option value="深圳">深圳</option>
+			</select>
+		</div>
+		<div>
+			<input type="submit" value="提交">
+		</div>
+	</form>
+
+	<!-- <form action="https://www.kuazhucom" id="form2">
+		<div>
+			<input type="text" name="user">
+		</div>
+		<div>
+			<input type="text" name="my">
+		</div>
+		
+		<div>
+			<input type="submit" value="提交">
+		</div>
+	</form> -->
+</body>
+<script>
+	var oForm = document.forms[0];
+	var oUsername = oForm.username;
+	console.log(oUsername);
+	oUsername.focus();
+	//oUsername.blur();
+
+</script>
+</html>

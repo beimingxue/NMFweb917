@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-jQuery的基本过滤器</title>
+	<style>
+		/* div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+		} */
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			console.log($('div:eq(0)'));
+			console.log($('div:eq(1)'));
+			console.log($('div:eq(-1)').index());
+
+			console.log($('div').eq(0));
+			console.log($('div').get(0)); //DOM元素
+		})
+	</script>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+</html>

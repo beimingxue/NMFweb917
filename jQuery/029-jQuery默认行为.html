@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-jQuery默认行为</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			$('a').click(function(){
+				alert('click me');
+				//return false;
+                event.preventDefault(); //?????
+			})
+		})
+	</script>
+</head>
+<body>
+	<a href="http://www.kuazhu.com">aaa</a>
+</body>
+</html>

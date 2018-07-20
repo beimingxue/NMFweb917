@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小鸟飞飞</title>
+	<style>
+	    *{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+	     body{
+	    	overflow: hidden;
+	    } 
+		#bird{
+			width: 50px;
+			height: 50px;
+			background: black;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -15px;	
+		}
+		.topLine{
+			position: absolute;
+			width: 50px;
+			background: green;
+			top: 0;
+			left: 100%; 
+		}
+		.bottomLine{
+			position: absolute;
+			width: 50px;
+			background: green;
+			bottom: 0;
+			left: 100%; 
+		}
+	</style>
+	<script>
+		function getRandom(min,max){
+			return Math.round(min + (max-min)*Math.random());
+		}
+
+        var moveBirdTimer = null;
+        var addLineTimer = null;
+		window.onload = function(){
+			var oBird = document.getElementById('bird');
+
+          function addLine(){
+			var oTopLine = document.createElement('div');
+			var oBottomLine = document.createElement('div')
+			oTopLine.className = 'topLine';
+			oBottomLine.className = 'bottomLine';
+
+			var h = getRandom(200,300);
+			oTopLine.style.height = h + 'px';
+            oBottomLine.style.height = window.innerHeight - h - 150 +'px';
+			document.body.appendChild(oTopLine);
+			document.body.appendChild(oBottomLine);
+		}
+		//addLine();
+		clearInterval(addLineTimer);
+		addLineTimer = setInterval(function(){
+              addLine();
+		},800)
+
+		/*	var iSpeed = 0;
+			clearInterval(moveBirdTimer);
+			moveBirdTimer = setInterval(function(){
+                iSpeed += 0.5;
+                //iSpeed = oBird.offsetTop + iSpeed;
+                //oBird.style.top = iSpeed + 'px';
+                var t = oBird.offsetTop + iSpeed;
+                oBird.style.top = t +'px';
+			},30)
+			document.onkeydown = function(){
+				 iSpeed -= 20;
+			}
+*/
+		}
+	</script>
+</head>
+<body>
+	<div id="bird"></div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery操作class</title>
+	<style>
+		.box1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+		}
+		.box2{
+			background: red;
+		}
+	</style>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+	     $(function(){
+	     	var oBtn = document.getElementsByTagName('button')[0];
+	     	oBtn.onclick = function(){
+	     		//$('div').addClass('box1 box2');
+	     		//$('div').removeClass('box1');
+	     		//$('div').toggleClass('box1');
+	     		$('div').attr('class','box1');
+	     	}
+	     })
+	</script>
+</head>
+<body>
+	<button>点击</button>
+	<div class="box2"></div>
+</body>
+</html>

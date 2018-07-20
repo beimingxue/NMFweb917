@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的拷贝</title>
+	<script>
+	     var obj1 = {
+	     	name: "tom",
+	     	age: 18
+	     }
+
+	     var obj2= obj1; //obj1 对内存 对象地址 赋给 obj2
+
+	     //obj2.sex = 'famel';    //指向同一个地址
+	     //console.log(obj2);
+	     //console.log(obj1);
+
+	     var obj3 ={};
+	     for(key in obj1){
+	     	obj3[key] = obj1[key];
+	     }   //for in 拷贝相当于基本类型 赋值  不会影响到之前的元素
+	     obj3.sex = 'famel';
+	     console.log(obj3);
+	     console.log(obj1);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

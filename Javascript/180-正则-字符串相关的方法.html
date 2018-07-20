@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-字符串相关的方法</title>
+	<script>
+		var str = '你好，hello';
+		var str2 = 'dddafcda';
+		var str3 = 'abcdefg';
+		var str4 = 'aAdBg4';
+		var link = 'dadhttp://www.kuazhu.comddd';
+		//console.log(str.charAt(str.length-1));
+		//console.log(str[3]);
+		//console.log(str.charCodeAt())；
+
+		console.log(str2.indexOf('a')); // 3         ？？？？？？？？？    
+		console.log(str2.lastIndexOf('a')); //7        ？？？？？？？？？
+		console.log(str2.indexOf('d')); // 0        ？？？？？？？？？
+		console.log(str2.lastIndexOf('d')); // 6        ？？？？？？？？？
+
+		console.log(encodeURIComponent(link)); //dadhttp%3A%2F%2Fwww.kuazhu.comddd
+		console.log(decodeURIComponent(link)); //dadhttp://www.kuazhu.comddd
+
+		console.log(str.concat(str2)); //连接字符串
+		console.log(str3.slice(0,3)); //截取字符串 abc  (起始下标,结束下标)
+		console.log(str3.slice(-3)); //egf 下标可以是负数,负数表示从尾部开始计算
+ 
+		console.log(str3.substr(1,2)); //bc 截取字符串(起始下标,长度)
+		console.log(str3.substr(-3)); //efg  +1
+
+		console.log(str3.substring(1,2)); //截取字符串
+		console.log(str3.substring(-2)); //不可以负数
+
+		console.log(str4.toLowerCase()); //将字符串 转换为小写
+		console.log(str4.toUpperCase()); //将字符串 转换为大写
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

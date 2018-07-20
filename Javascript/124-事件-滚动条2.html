@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>123-事件-滚动条</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#box{
+			width: 500px;
+			height: 50px;
+			border: 1px solid black;
+			position: relative;
+		}
+		#btn{
+			width: 50px;
+			height: 50px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#div{
+		    width: 500px;
+			height: 100px; 
+			
+		}
+		
+	</style>
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oBtn = document.getElementById('btn');
+			var oDiv = document.getElementById('div');
+			var oDiv3 = document.getElementById('div3'); 
+			disX = 0;
+            oBtn.onmousedown = function(ev){
+            	 var oEvent = ev || event;
+            	 disX = oEvent.clientX - oBtn.offsetLeft;
+            	 //var l = 0;
+                document.onmousemove = function(ev){
+                	var oEvent = ev || event;
+                    var l = oEvent.clientX - disX;
+                	
+                    if(l < 0){
+                         l = 0;
+                    }else if(l >= oBox.offsetWidth - oBtn.offsetWidth){
+                    	l = oBox.offsetWidth - oBtn.offsetWidth;
+                    }
+                    var scale = l/(oBox.offsetWidth - oBtn.offsetWidth);
+                    oDiv.style.width = 500*scale + 'px'; 
+                    oDiv.style.height = 500*scale + 'px';
+                    oBtn.style.left = l + 'px';
+
+                    
+                    
+                }
+                oBtn.onmouseup = function(){
+                	 oDiv.onmousemove = null;
+                	 oDiv.onmousedown = null;
+                }
+            }
+
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+	<div id="btn"></div>
+	<div id="div">
+		<div id="div3">三国（220年－280年）是上承东汉下启西晋的一段历史时期，分为曹魏、蜀汉、东吴三个政权。赤壁之战时，曹操被孙刘联军击败，奠定了三国鼎立的雏型。
+220年，曹丕篡汉称帝，国号“魏”，史称曹魏，三国历史正式开始。次年刘备在成都延续汉朝，史称蜀汉。222年刘备在夷陵之战失败，孙权获得荆州大部。223年刘备去世，诸葛亮辅佐刘备之子刘禅与孙权重新联盟。229年孙权称帝，国号“吴”，史称东吴，至此三国正式成立。
+此后的数十年内，蜀汉诸葛亮、姜维多次率军北伐曹魏，但始终未能改变三足鼎立的格局。曹魏后期的实权渐渐被司马懿掌控。263年，曹魏的司马昭发动魏灭蜀之战，蜀汉灭亡。两年后司马昭病死，其子司马炎废魏元帝自立，建国号为“晋”，史称西晋。公元280年，西晋灭东吴，统一中国，至此三国时期结束，进入晋朝时期。三国（220年－280年）是上承东汉下启西晋的一段历史时期，分为曹魏、蜀汉、东吴三个政权。赤壁之战时，曹操被孙刘联军击败，奠定了三国鼎立的雏型。
+220年，曹丕篡汉称帝，国号“魏”，史称曹魏，三国历史正式开始。次年刘备在成都延续汉朝，史称蜀汉。222年刘备在夷陵之战失败，孙权获得荆州大部。223年刘备去世，诸葛亮辅佐刘备之子刘禅与孙权重新联盟。229年孙权称帝，国号“吴”，史称东吴，至此三国正式成立。
+此后的数十年内，蜀汉诸葛亮、姜维多次率军北伐曹魏，但始终未能改变三足鼎立的格局。曹魏后期的实权渐渐被司马懿掌控。263年，曹魏的司马昭发动魏灭蜀之战，蜀汉灭亡。两年后司马昭病死，其子司马炎废魏元帝自立，建国号为“晋”，史称西晋。公元280年，西晋灭东吴，统一中国，至此三国时期结束，进入晋朝时期。三国（220年－280年）是上承东汉下启西晋的一段历史时期，分为曹魏、蜀汉、东吴三个政权。赤壁之战时，曹操被孙刘联军击败，奠定了三国鼎立的雏型。
+220年，曹丕篡汉称帝，国号“魏”，史称曹魏，三国历史正式开始。次年刘备在成都延续汉朝，史称蜀汉。222年刘备在夷陵之战失败，孙权获得荆州大部。223年刘备去世，诸葛亮辅佐刘备之子刘禅与孙权重新联盟。229年孙权称帝，国号“吴”，史称东吴，至此三国正式成立。
+此后的数十年内，蜀汉诸葛亮、姜维多次率军北伐曹魏，但始终未能改变三足鼎立的格局。曹魏后期的实权渐渐被司马懿掌控。263年，曹魏的司马昭发动魏灭蜀之战，蜀汉灭亡。两年后司马昭病死，其子司马炎废魏元帝自立，建国号为“晋”，史称西晋。公元280年，西晋灭东吴，统一中国，至此三国时期结束，进入晋朝时期。三国（220年－280年）是上承东汉下启西晋的一段历史时期，分为曹魏、蜀汉、东吴三个政权。赤壁之战时，曹操被孙刘联军击败，奠定了三国鼎立的雏型。
+220年，曹丕篡汉称帝，国号“魏”，史称曹魏，三国历史正式开始。次年刘备在成都延续汉朝，史称蜀汉。222年刘备在夷陵之战失败，孙权获得荆州大部。223年刘备去世，诸葛亮辅佐刘备之子刘禅与孙权重新联盟。229年孙权称帝，国号“吴”，史称东吴，至此三国正式成立。
+此后的数十年内，蜀汉诸葛亮、姜维多次率军北伐曹魏，但始终未能改变三足鼎立的格局。曹魏后期的实权渐渐被司马懿掌控。263年，曹魏的司马昭发动魏灭蜀之战，蜀汉灭亡。两年后司马昭病死，其子司马炎废魏元帝自立，建国号为“晋”，史称西晋。公元280年，西晋灭东吴，统一中国，至此三国时期结束，进入晋朝时期。</div>
+	</div>
+
+
+</body>
+</html>

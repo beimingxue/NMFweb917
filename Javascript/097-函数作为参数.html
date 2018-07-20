@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数作为参数</title>
+	<script>
+		/*function show(fn){
+			 fn();
+		}
+		show(function(){
+			alert(555);
+		})
+*/
+
+		function sum(x,y,fn){
+             var z = x*10 + y*10;
+             fn(z);
+		}
+		sum(2,3,function(res){
+              alert(res);
+		});
+		
+		/*function show(fn){
+			// alert(val);
+			fn();
+		}
+		show(function(){
+			alert('abc')
+		});
+		//回调
+		function sum(x,y,fn){
+			var z = x*10 + y*10;
+			fn(z);
+		}
+		sum(2,3,function(res){
+			alert(res);
+		})*/
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

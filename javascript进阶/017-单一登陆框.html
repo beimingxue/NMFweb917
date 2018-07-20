@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登陆框</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		#login{
+            width: 400px;
+            height: 400px;
+            background: red; 
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            margin-top: -100px;
+            margin-left: -50px;
+            /* display: none; */
+		}
+	</style>
+	
+</head>
+<body>
+	<input type="button" id="btn" value="登录">
+	<!-- <div id="login"></div> -->
+</body>
+<script>
+  
+        (function(w){
+            var obj = null;
+            function LoginLayer(){
+                if(!obj){
+                  var oDiv = document.createElement('div');
+                  oDiv.id = 'login';
+                  document.body.appendChild(oDiv);
+                  obj = oDiv;
+                }
+              
+            }
+            w.LoginLayer = LoginLayer;
+        })(window);
+          function createLoginLayer(){
+
+          }
+       /* var getSingle = (function(fn){
+            var obj = null;
+            if(!obj){
+                obj = 
+            }
+        })(fn);*/
+        function getSignle(fn){
+
+        }
+        var oBtn = document.getElementById('btn');
+        var oBox = document.getElementById('login');
+
+        oBtn.onclick = function(){
+           //oBox.style.display = 'block';
+           /*var oDiv = document.createElement('div');
+           oDiv.id = 'login';
+           document.body.appendChild(oDiv);*/
+           new LoginLayer();
+
+        }
+
+
+    </script>
+</html>

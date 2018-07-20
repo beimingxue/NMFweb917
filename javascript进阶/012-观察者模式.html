@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12-观察者模式</title>
+    <script>
+    (function(w){
+        function Teacher(name){    //构造函数
+            this.name = name;
+            this.students = []; //老师对象数组 存储学生信息 0.1
+        }
+        Teacher.prototype ={  //0.2
+            constructor: Teacher,  //自身
+            _proto_: Object.prototype,  
+            register: function(Student){   //学生注册的接口 老师提供 一种方法
+                this.students.push(Student); //在students 数组中 添加数据 对象为 学生
+            },
+            publish: function(msg){   
+                for(var i =0; i<this.students.length; i++){  //循环students数组
+                    this.students[i].listen(msg); //拿到每一个学生 调用每个学生的方法 发布给学生需要接收的消息
+                }
+            }
+        }
+        w.Teacher = Teacher;  //返回
+    })(window);
+
+    (function(w){
+        function Student(name,teacher){
+            this.name = name;
+            teacher.register(this); //调用老师的 register 方法
+            this.msg = '';  //初始为空
+        } 
+        Student.prototype ={
+            constructor: Student,
+            _proto_:Object.prototype,
+            listen: function(msg){
+                 this.msg = msg;  //接收消息 并存在自身
+             }
+        }  
+        w.Student = Student;    
+    })(window)
+
+    var teacher = new Teacher('Thh');
+    var s1 = new Student('夜',teacher);
+    var s2 = new Student('尽',teacher);
+    var s3 = new Student('天',teacher);
+
+    teacher.publish('任务'); //老师publish 作业
+    console.log(s1.name + ' get ' + s1.msg);
+    console.log(s2.name + ' get ' + s2.msg);
+    console.log(s3.name + ' get ' + s3.msg);
+
+    var teacher2 = new Teacher('loe');
+    var s4 = new Student('1',teacher2);
+    var s5 = new Student('2',teacher2);
+    var s6 = new Student('3',teacher2);
+    teacher2.publish('任务2');
+    console.log(s4.name + ' get ' + s4.msg);
+    console.log(s5.name + ' get ' + s5.msg);
+    console.log(s6.name + ' get ' + s6.msg);
+
+
+</script>
+</head>
+<body>
+	
+</body>
+
+</html>
