@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-arrow函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function(x){
+		return x * x;
+	}*/
+
+    //'use strict';
+	//var fn = x => x * x;
+	//console.log('支持');
+    
+    //
+	x => {
+      if (x > 0) {
+         return x * x;
+      }
+      else {
+         return - x * x;
+      }
+    }
+
+    // 两个参数:
+   (x, y) => x * x + y * y;
+
+   // 无参数:
+   () => 3.14;
+
+   // 可变参数:
+   (x, y, ...rest) => {
+      var i, sum = x + y;
+      for (i=0; i<rest.length; i++) {
+         sum += rest[i];
+    }
+    return sum;
+   }
+   console.log();
+
+   var 
+
+</script>
+</html>
