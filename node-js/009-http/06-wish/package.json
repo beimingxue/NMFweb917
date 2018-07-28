@@ -1,16 +1,16 @@
 {
-  "name": "node-js",
+  "name": "06-wish",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "WishModel.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "formidable": "^1.2.1",
     "swig": "^1.4.2",
     "uuid": "^3.3.2"
   }

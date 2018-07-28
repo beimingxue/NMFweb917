@@ -1,7 +1,9 @@
 const fs = require('fs');
 const uuidv1 = require('uuid/v1');
- 
-const filePath = './data.json';
+
+const path = require('path');
+// normalize 使正常化
+const filePath = normalize(__dirname + './data/data.json');
  
 let add = (options,callback)=>{
     fs.readFile(filePath,(err,data)=>{

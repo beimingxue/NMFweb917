@@ -17,7 +17,7 @@ const server = http.createServer((req,res)=>{
  
     let fileName = req.url;
      
-    if(pathname === '/index.html' || pathname === '/'){//显示首页
+    if(pathname === '/index.html' || pathname === '/'){//显示首页   / 路由
         WishModel.get((err,data)=>{
             if(!err){
                 let html = `<!DOCTYPE html>
