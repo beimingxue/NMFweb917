@@ -33,11 +33,11 @@ db.once('open',()=>{
 
   UserModel.findById('5b62cd66026e2131ac26e641',(err,doc)=>{
      if(!err){
-         console.log(doc.createAt);
-         let date = new Date(doc.createAt);
-         console.log(date);
+         console.log('123:::',doc.createAt);
+         //let date = new Date(doc.createAt);
+         //console.log(date);
      }else{
-
+         console.log('find error:::',error);
      }
   })
     
