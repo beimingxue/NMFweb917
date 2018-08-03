@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>index</title>
-	<script src="./js/jquery-1.12.4.min.js"></script>
+	<script src="js/jquery-1.12.4.js"></script>
 </head>
 <body>
 	<button id="get"></button>
@@ -11,8 +11,23 @@
 <script>
 	$(function(){
 		$('#get').on('click',function(){
-			
+		    $.ajax({
+		    	url: '/',
+		    	type: 'get'
+		    })
+			.done(function(data){
+               console.log(data);
+			})
+			.fail(function(err){
+				console.log(err);
+			})
 		})
+		
 	})
+	/*$(function(){
+		$('#get').on('click',function(){
+			console.log('aaa');
+		})
+	})*/
 </script>
 </html>
