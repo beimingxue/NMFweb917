@@ -67,6 +67,10 @@ body{
 #logout{
   text-align: left;   
 }
+.user-panel .err{
+	 height: 30px;
+	 line-height: 30px;
+}
 /*
 .main .carousel-inner .item{
 	background-repeat: no-repeat;
