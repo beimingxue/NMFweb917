@@ -22,7 +22,7 @@
      //用户注册处理
      $('#sub-register').on('click',function(){
           //获取数据
-          var username = $register.find("[name='usdername']").val();
+          var username = $register.find("[name='username']").val();
           var password = $register.find("[name='password']").val();
           var repassword = $register.find("[name='repassword']").val();
 
@@ -54,11 +54,11 @@
                          password:password
                     },
                     type:'post',
-                    dataType:'json'
+                    dataType:'json'       //指定类型为json
                })
                .done(function(result){
                     if(result.code === 0){//注册成功
-                         $('#go-login').trigger('click')
+                         $('#go-login').trigger('click')  //登录面板显示 注册面板消失
                     }else{
                          $register.find('.err').html(result.message)
                     }
@@ -107,13 +107,13 @@
                .done(function(result){
                     console.log(result);
                     if(result.code === 0){//登录成功
-                         /*
+                         
                          $login.hide();
                          $userInfo.find('span').html(result.data.username)
                          $userInfo.show(); 
-                         */
+                         
                          //刷新当前页面(首页)
-                         window.location.reload();
+                         //window.location.reload();
                     }else{
                          $err.html(result.message)
                     }
