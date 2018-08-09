@@ -2,9 +2,10 @@
 (function($){
      var $register = $('#register');
      var $login = $('#login');
-     var $userInfo = $('user-info');
-     //console.log($login);
-     
+     var $userInfo = $('#user-info');
+     var $logout = $('#logout');
+     //console.log($userInfo);
+    
      $('#go-register').on('click',function(){
      	$login.hide();
      	$register.show();
@@ -12,7 +13,11 @@
      $('#go-login').on('click',function(){
      	$register.hide();
      	$login.show();
-     })
+     });
+     /*$('#logout').on('click',function(){
+          $userInfo.hide();
+          $register.show();
+     })*/
      
      //验证的正则
      var usernameReg = /^[a-z][a-z|0-9|_]{2,9}$/i;
@@ -72,6 +77,7 @@
      //用户登录 (未完成)
 
           $('#sub-login').on('click',function(){
+               //console.log('aa');
           //获取数据
           var username = $login.find("[name='username']").val();
           var password = $login.find("[name='password']").val();
@@ -107,9 +113,9 @@
                .done(function(result){
                     console.log(result);
                     if(result.code === 0){//登录成功
-                         
+                         //console.log(result.username);
                          $login.hide();
-                         $userInfo.find('span').html(result.data.username)
+                         $userInfo.find('span').html(result.username)
                          $userInfo.show(); 
                          
                          //刷新当前页面(首页)
@@ -125,6 +131,7 @@
      })
      //用户退出
      $('#logout').on('click',function(){
+          console.log('aa');
           $.ajax({
                url:"/user/logout",
                dataType:'json',
@@ -132,12 +139,14 @@
           })
           .done(function(result){
                if(result.code == 0){
-                    window.location.reload();
+                    $userInfo.hide();
+                    $login.show();
+                    //window.location.reload();
                }
           })
           .fail(function(err){
                console.log(err)
           })        
      });
-   
+   //
 })(jQuery)

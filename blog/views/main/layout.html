@@ -41,8 +41,10 @@
           <!--主内容左边-->
           <!--主内容右边-->
           <div class="col-md-4 hidden-xs hidden-sm">
-            <div class="user-panel" style="display: none">
-                    欢迎<span>Tom</span>
+                <div class="user-panel" id="user-info" style="display: none">
+                    欢迎<span></span>
+                    <a class="link" href="/admin">进入管理中心</a>
+                    <a class="link" href="/center">进入用户中心</a>
                     <a class="link" class="javascript:;" id="logout">退出</a>
                 </div>
                 <div class="form-horizontal user-panel" id="register" style="display: none">
@@ -95,7 +97,7 @@
                   
                   <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-6">
-                      <a href="javascript:;" class="btn btn-primary" id="sub-register">提交</a>
+                      <a href="javascript:;" class="btn btn-primary" id="sub-login">提交</a>
                       <a href="javascript:;" class="link" id="go-register">免费注册</a>
                     </div>
                   </div>

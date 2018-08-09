@@ -15,6 +15,7 @@ body{
 .link:hover{
 	color: #f65a8a !important;
 }
+
 .text-ellipsis{
 	overflow: hidden;
 	white-space: nowrap;
@@ -64,7 +65,7 @@ body{
 	 padding-left: 20px;
 	 box-sizing: border-box;
 }
-#logout{
+#user-info .link{
   text-align: left;   
 }
 .user-panel .err{
