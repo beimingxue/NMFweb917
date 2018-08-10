@@ -106,6 +106,7 @@ app.use(bodyParser.json());
 app.use('/',require('./routes/index.js'));
 app.use('/user',require('./routes/user.js'));
 app.use('/admin',require('./routes/admin.js'));
+app.use('/category',require('./routes/category.js'));
 
 //接收
 app.listen(3000,()=>{
