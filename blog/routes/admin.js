@@ -1,6 +1,7 @@
 const Router = require('express').Router;
 const UserModel = require('../models/user.js');
 const router = Router();
+const pagination = require('../util/pagination.js');
 //console.log('dh::',router);
 //权限控制
 router.use((req,res,next) =>{
@@ -24,11 +25,11 @@ router.get("/",(req,res)=>{
 //显示用户列表
 router.get("/users",(req,res)=>{
 	//获取所有用户信息，分配给模板
-	let page = req.query.page || 1;
+	/*let page = req.query.page || 1;
 
 	if(page <= 0){
 		page = 1;
-	}
+	}*/
 	// console.log('11::',page);
 	/*
 	  分页(显示两条)
@@ -42,9 +43,9 @@ router.get("/users",(req,res)=>{
       综上发现规律
       (page-1)*limit = skip
 	*/ 
-	let limit = 2;
+	//let limit = 2;
     
-    UserModel.estimatedDocumentCount({})
+    /*UserModel.estimatedDocumentCount({})
      .then((count) =>{
     	//console.log(count);
     	//拿到总条数 计算总页数
@@ -71,9 +72,25 @@ router.get("/users",(req,res)=>{
 				   list:list
 			    });
 			})
-    })
-
-
+     })*/
+         let options = {
+			page: req.query.page,//需要显示的页码
+			model:UserModel, //操作的数据模型
+			query: {},//查询条件
+			projection:'_id username isAdmin',//投影，
+			sort:{_id:-1} //排序
+         }
+         pagination(options)
+         .then((data)=>{
+         	res.render('admin/user-list',{
+				userInfo:req.userInfo,
+				users:data.docs,
+				page:data.page,
+				list:data.list,
+				pages:data.pages,
+				url:'/admin/users'
+			});
+         })
 	
 })
 

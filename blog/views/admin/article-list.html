@@ -1,0 +1,21 @@
+{% extends './layout.html' %}
+
+{% block header %}
+  文章列表
+{% endblock %}
+
+{% block content %}
+<a href="/article/add" class="btn btn-primary btn-add">新增分类</a>
+  <table class="table table-striped">
+     <tr>
+       <th>id</th>
+       <th>分类名称</th>
+       <th>排序</th>
+       <th>操作</th>
+     </tr>
+     
+  </table>
+  {% if pages > 1 %}
+ {% include './pagination.html' %}
+  {% endif %}
+{% endblock %}
