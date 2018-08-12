@@ -1,12 +1,4 @@
 /*
-* @Author: TomChen
-* @Date:   2018-08-09 10:22:53
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-09 11:38:44
-*/
-
-
-/*
 options = {
 	page: //需要显示的页码
 	model: //操作的数据模型
@@ -65,7 +57,14 @@ let pagination = (options)=>{
 
 			let skip = (page - 1)*limit;
 
-			options.model.find(options.query,options.projection)
+			let query = options.model.find(options.query,options.projection);
+			if(options.populate){
+				for(let i = 0;i<options.populate.length;i++){
+					query = query.populate(options.populate[i])
+				}
+			}
+
+			query
 			.sort(options.sort)
 			.skip(skip)
 			.limit(limit)

@@ -148,5 +148,22 @@
                console.log(err)
           })        
      });
-   //
+
+   //发送文章列表的请求
+   $('#page').on('click','a',function(){
+       //console.log(this);
+
+       $.ajax({
+          url:'/articles',
+          type:'get',
+          dataType:'json',
+
+       })
+       .done(function(result){
+           console.log(result);
+       })
+       .fail(function(){
+
+       })
+   })
 })(jQuery)

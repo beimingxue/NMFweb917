@@ -2,6 +2,8 @@ const Router = require('express').Router;
 const UserModel = require('../models/user.js');
 const router = Router();
 const pagination = require('../util/pagination.js');
+const multer = require('multer');
+const upload = multer({ dest: 'public/uploads/' })
 //console.log('dh::',router);
 //权限控制
 router.use((req,res,next) =>{
@@ -92,6 +94,15 @@ router.get("/users",(req,res)=>{
 			});
          })
 	
+})
+
+router.post('/uploadImages',upload.single('upload'),(req,res)=>{
+	//console.log('upload img:::',req.body);
+	let path = "/uploads/"+req.file.filename;
+	res.json({
+		uploaded:true,
+        url:path
+	})
 })
 
 
