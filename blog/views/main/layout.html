@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
-    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link href="/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    {% block head %}{% endblock %}
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top kz-navbar">
@@ -21,13 +22,21 @@
           <a class="navbar-brand" href="#">我的个人博客</a>
         </div>
         <div class="collapse navbar-collapse" id="top-nav">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/">首页</a></li>
-            {% for category in categories %}
-            <li><a href="/list/{{ category._id.toString() }}">{{ category.name }}</a></li>
-            {% endfor %}
-            
-          </ul>
+           <ul class="nav navbar-nav">
+          {% if category %}
+          <li><a href="/">首页</a></li>
+          {% else %}
+          <li class="active"><a href="/">首页</a></li>
+          {% endif %}
+          
+          {% for cate in categories %}
+            {% if cate._id.toString() == category  %}
+        <li class="active"><a href="/list/{{ cate._id.toString() }}">{{ cate.name }}</a></li>
+            {% else %}
+            <li><a href="/list/{{ cate._id.toString() }}">{{ cate.name }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
         </div>
       </div>
     </nav>
@@ -111,12 +120,12 @@
               <!--广告-->
               <div class="ad">
                   <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="image/ad/ad2.jpg" alt="...">
+                    <img class="img-responsive" src="/image/ad/ad2.jpg" alt="...">
                   </a>
               </div>
               <div class="ad">
                   <a href="#" class="thumbnail">
-                    <img class="img-responsive" src="image/ad/ad1.jpg" alt="...">
+                    <img class="img-responsive" src="/image/ad/ad1.jpg" alt="...">
                   </a>                
               </div>
               <div class="panel panel-default about-me">
@@ -127,12 +136,12 @@
                   <div class="media">
                     <div class="media-left">
                       <a href="#">
-                        <img class="media-object me-img" src="image/me.jpg" alt="...">
+                        <img class="media-object me-img" src="/image/me.jpg" alt="...">
                       </a>
                     </div>
                     <div class="media-body">
-                      <h4 class="media-heading">Tom</h4>
-                      80后草根！07年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。
+                      <h4 class="media-heading">Nazz</h4>
+                      有着樱色头发。服装大多是穿黑色短外挂配束裤和凉鞋，左腕上套著一个黑色护腕。脖子上永远围着一条火龙王伊古尼尔送的白色格纹围巾。 脱下围巾后在脖子的右方有一条疤痕。
                     </div>
                   </div>
                 </div>
@@ -143,24 +152,11 @@
                 </div>
                 <div class="panel-body">
                   <ul class="list-group">
-                    <li class="list-group-item">
-                      <a href="#" class="link text-ellipsis">深入了解 Bootstrap 底层结构的关键部分</a>
+                    {% for article in topArticles%}
+                     <li class="list-group-item">
+                      <a href="/view/{{ article._id.toString() }}" class="link text-ellipsis">[{{ article.click }}]{{ article.title }}</a>
                     </li>
-                    <li class="list-group-item">
-                      <a href="#" class="link text-ellipsis">深入了解 Bootstrap 底层结构的关键部分</a>
-                    </li>
-                    <li class="list-group-item">
-                      <a href="#" class="link text-ellipsis">深入了解 Bootstrap 底层结构的关键部分</a>
-                    </li> 
-                    <li class="list-group-item">
-                      <a href="#" class="link text-ellipsis">深入了解 Bootstrap 底层结构的关键部分</a>
-                    </li> 
-                    <li class="list-group-item">
-                      <a href="#" class="link text-ellipsis">深入了解 Bootstrap 底层结构的关键部分</a>
-                    </li> 
-                    <li class="list-group-item">
-                      <a href="#" class="link text-ellipsis">深入了解 Bootstrap 底层结构的关键部分</a>
-                    </li>                                                                    
+                    {% endfor %}                                                                  
                   </ul>
                 </div>
               </div>
@@ -169,7 +165,7 @@
                   <h3 class="panel-title">关注我</h3>
                 </div>
                 <div class="panel-body">
-                  <img src="image/Wechat.jpeg" class="wechat-img" alt="">
+                  <img src="/image/Wechat.jpeg" class="wechat-img" alt="">
                 </div>
               </div> 
           </div><!--主内容右边-->
@@ -179,8 +175,9 @@
     <footer>
       <p>Blog Design by <a href="#">Kuazhu</a> <a href="#">豫ICP备11002373号-1</a>.</p>
     </footer>
-    <script src="lib/jQuery/jquery-1.12.4.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/lib/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="/lib/moment/moment.js"></script>
+    <script src="/js/index.js"></script>
   </body>
 </html>

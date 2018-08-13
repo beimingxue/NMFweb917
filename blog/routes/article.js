@@ -21,7 +21,7 @@ router.get("/",(req,res)=>{
 	.then((docs)=>{
 		console.log(docs);
 	})*/
-     let options = {
+     /*let options = {
 			page: req.query.page,//需要显示的页码
 			model:ArticleModel, //操作的数据模型
 			query: {},//查询条件
@@ -29,7 +29,8 @@ router.get("/",(req,res)=>{
 			sort:{_id:-1}, //排序
 			populate:[{path:'category',select:'name'},{path:'user',select:'username'}]
          }
-     pagination(options)
+     pagination(options)*/
+     ArticleModel.getPaginationArticles(req)
      .then((data)=>{
      	//console.log(data.docs);
      	res.render('admin/article-list',{

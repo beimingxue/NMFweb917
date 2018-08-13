@@ -152,18 +152,82 @@
    //发送文章列表的请求
    $('#page').on('click','a',function(){
        //console.log(this);
+       //let page = $(this).html();
+       let $this = $(this);
+       //console.log('10::',page);
+       let page = 1;
+       let currentPage = $('#page').find('.active a').html();
+       console.log('25',currentPage);
+       let label = $this.attr('aria-label');
+       //attr() 方法设置或返回被选元素的属性值
+       if(label == 'Previous'){ //上一页
+             page = currentPage - 1;
+       }else if(label == 'Next'){ //下一页
+             //console.log('hb');
+             page = currentPage*1 + 1;
+       }else{
+          page = $(this).html();
+       }
+
+       var query = 'page=' + page;
+
+       var category = $('#cate-id').val();
+
+          if(category){
+               query += "&category="+category;
+          }
 
        $.ajax({
-          url:'/articles',
+          url:'/articles?'+ query,
+          //url:'/articles',
           type:'get',
           dataType:'json',
 
        })
        .done(function(result){
+          if(result.code == 0){
+               buildArticleList(result.data.docs);
+          }
            console.log(result);
        })
-       .fail(function(){
-
+       .fail(function(err){
+          console.log(err);
        })
    })
+   function buildArticleList(articles){
+       var html = '';
+
+       for(var i=0;i<articles.length;i++){
+          var data = moment(articles[i].createdAt).format('YYYY年MM月DD日 HH:mm:ss ');
+          html += `<div class="panel panel-default content-item">
+                 <div class="panel-heading">
+                   <h3 class="panel-title">
+                    <a href="/view/${articles[i]._id}" class="link" target="_blank">${ articles[i].title }</a>
+                    </h3>
+                 </div>
+                 <div class="panel-body">
+                    ${ articles[i].intro }
+                 </div>
+                 <div class="panel-footer">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="panel-footer-text text-muted">
+                         ${ articles[i].user.username }
+                    </span>
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <span class="panel-footer-text text-muted">
+                         ${ articles[i].category.name }
+                    </span>
+                    <span class="glyphicon glyphicon-time"></span>
+                    <span class="panel-footer-text text-muted">
+                         ${ data }
+                    </span>
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    <span class="panel-footer-text text-muted">
+                         <em>${ articles[i].click }</em>已阅读
+                    </span>
+                 </div>
+               </div>`
+       }
+     $('#article-list').html(html);  
+   }
 })(jQuery)

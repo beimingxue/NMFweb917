@@ -8,7 +8,11 @@ body{
 	background: #efefef;
 	margin-bottom: 20px;
 }
-
+#comment-btn{
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+}
 .link{
 	text-decoration: none !important;
 }
