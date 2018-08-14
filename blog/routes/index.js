@@ -1,6 +1,7 @@
 const Router = require('express').Router;
 const CategoryModel = require('../models/category.js');
 const ArticleModel = require('../models/article.js');
+const CommentModel = require('../models/comment.js');
 const pagination = require('../util/pagination.js');
 const getCommonData = require('../util/getCommonData.js');
 const router = Router();
@@ -97,16 +98,34 @@ router.get('/view/:id',(req,res)=>{
 	})*/
 	ArticleModel.findByIdAndUpdate(id,{$inc:{click:1}},{new:true})
 	.populate('category','name')
-	.then((article)=>{
-        getCommonData()
+	.then((article)=>{   //详情页先拿到article
+        getCommonData()   //再拿到数据
 		.then(data=>{
-			res.render('main/detail',{
-				userInfo:req.userInfo,
-				article:article,
-				categories:data.categories,
-				topArticles:data.topArticles,
-				category:article.category._id.toString()
-			})			
+/*             let options = {
+		        page: req.query.page,//需要显示的页码
+		        model:CommentModel, //操作的数据模型
+		        query:{article:id}, //查询条件
+		        projection:'-__v', //投影，
+		        sort:{_id:-1}, //排序
+		        populate:[{path:'article',select:'title'},{path:'user',select:'username'}]
+		     }
+		     pagination(options)*/  
+		     CommentModel.getPaginationComments(req,{article:id})
+
+            .then(pageData=>{
+            	res.render('main/detail',{
+					userInfo:req.userInfo,
+					article:article,
+					categories:data.categories,
+					topArticles:data.topArticles,
+					comments:pageData.docs,
+					page:pageData.page,
+					list:pageData.list,
+					pages:pageData.pages,
+					category:article.category._id.toString()
+				})		
+            })
+		
 		})
 	})
 })

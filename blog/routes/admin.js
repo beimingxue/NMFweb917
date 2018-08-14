@@ -96,6 +96,7 @@ router.get("/users",(req,res)=>{
 	
 })
 
+//添加文章时处理图片上传
 router.post('/uploadImages',upload.single('upload'),(req,res)=>{
 	//console.log('upload img:::',req.body);
 	let path = "/uploads/"+req.file.filename;
@@ -105,5 +106,9 @@ router.post('/uploadImages',upload.single('upload'),(req,res)=>{
 	})
 })
 
+//显示用户评论列表
+router.get('/comments',(req,res)=>{
+
+})
 
 module.exports = router;
