@@ -3,8 +3,12 @@ const UserModel = require('../models/user.js');
 const CommentModel = require('../models/comment.js');
 const router = Router();
 const pagination = require('../util/pagination.js');
+const hmac = require('../util/hmac.js')
 const multer = require('multer');
 const upload = multer({ dest: 'public/uploads/' })
+const fs = require('fs');
+const path = require('path');
+
 //console.log('dh::',router);
 //权限控制
 router.use((req,res,next) =>{
@@ -141,4 +145,111 @@ router.get("/comment/delete/:id",(req,res)=>{
 	})
 
 });
+
+//显示站点管理页面
+router.get("/site",(req,res)=>{
+	let filePath = path.normalize(__dirname + '/../site-info.json');
+	fs.readFile(filePath,(err,data)=>{
+		if(!err){
+			let site = JSON.parse(data);
+			res.render('admin/site',{
+					userInfo:req.userInfo,
+					site:site
+			});	
+		}else{
+			console.log(err)
+		}
+	})
+	/*res.render('admin/site',{
+		userInfo:req.userInfo
+	})*/
+
+})
+
+//处理修改网站配置请求
+router.post("/site",(req,res)=>{
+	let body = req.body;
+	let site = {
+		name:body.name,
+		author:{
+			name:body.authorName,
+			intro:body.authorIntro,
+			image:body.authorImage,
+			wechat:body.authorWechat
+		},
+		icp:body.icp
+	}
+	site.carouseles = [];
+	
+	if(body.carouselUrl.length && (typeof body.carouselUrl == 'object')){
+		for(let i = 0;i<body.carouselUrl.length;i++){
+			site.carouseles.push({
+				url:body.carouselUrl[i],
+				path:body.carouselPath[i]
+			})			
+		}
+	}else{
+		site.carouseles.push({
+			url:body.carouselUrl,
+			path:body.carouselPath
+		})
+	}
+
+
+	site.ads = [];
+
+	if(body.adUrl.length && (typeof body.adUrl == 'object')){
+		for(let i = 0;i<body.adUrl.length;i++){
+			site.ads.push({
+				url:body.adUrl[i],
+				path:body.adPath[i]
+			})			
+		}
+	}else{
+		site.ads.push({
+			url:body.adUrl,
+			path:body.adPath
+		})
+	}
+
+	let strSite = JSON.stringify(site);
+
+	let filePath = path.normalize(__dirname + '/../site-info.json');
+	fs.writeFile(filePath,strSite,(err)=>{
+		if(!err){
+			res.render('admin/success',{
+				userInfo:req.userInfo,
+				message:'更新站点信息成功',
+				url:'/admin/site'
+			})				
+		}else{
+	 		res.render('admin/error',{
+				userInfo:req.userInfo,
+				message:'更新站点信息失败,文件写入失败'
+			})				
+		}
+	})
+})
+
+//显示修改密码页面
+router.get('/password',(req,res)=>{
+	res.render('admin/password',{
+		userInfo:req.userInfo
+	})
+})
+
+//修改密码请求处理
+router.post('/password',(req,res)=>{
+	UserModel.update({_id:req.userInfo._id},{
+		password:hmac(req.body.password)
+	})
+	.then(raw=>{
+		req.session.destroy();
+		res.render('admin/success',{
+			userInfo:req.userInfo,
+			message:'更新密码成功',
+			url:'/'
+		})			
+	})
+})
 module.exports = router;
