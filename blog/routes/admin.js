@@ -1,5 +1,6 @@
 const Router = require('express').Router;
 const UserModel = require('../models/user.js');
+const CommentModel = require('../models/comment.js');
 const router = Router();
 const pagination = require('../util/pagination.js');
 const multer = require('multer');
@@ -108,7 +109,36 @@ router.post('/uploadImages',upload.single('upload'),(req,res)=>{
 
 //显示用户评论列表
 router.get('/comments',(req,res)=>{
-
+	//console.log('mengfei');
+	CommentModel.getPaginationComments(req)
+	.then(data=>{
+		res.render('admin/comment-list',{
+			userInfo:req.userInfo,
+			comments:data.docs,
+			page:data.page,
+			pages:data.pages,
+			list:data.list,
+			url:'/admin/comments'
+		})
+	})
 })
+//删除评论
+router.get("/comment/delete/:id",(req,res)=>{
+	let id = req.params.id;
+	CommentModel.remove({_id:id},(err,raw)=>{
+		if(!err){
+			res.render('admin/success',{
+				userInfo:req.userInfo,
+				message:'删除评论成功',
+				url:'/admin/comments'
+			})				
+		}else{
+	 		res.render('admin/error',{
+				userInfo:req.userInfo,
+				message:'删除评论失败,数据库操作失败'
+			})				
+		}		
+	})
 
+});
 module.exports = router;
