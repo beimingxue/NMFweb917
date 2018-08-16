@@ -1,0 +1,9 @@
+body{
+	background: blue;
+}
+.box1{
+	width: 200px;
+	height: 200px;
+	background: green; 
+	background: url('./me.jpg');
+}
