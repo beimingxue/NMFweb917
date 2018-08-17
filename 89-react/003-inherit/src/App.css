@@ -1,0 +1,10 @@
+.box{
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.box li{
+  list-style: none;
+  margin-top: 10px;
+  border-bottom: 1px solid red;
+}
