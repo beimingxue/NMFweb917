@@ -3,6 +3,7 @@ import React,{ Component } from 'react';
 import { Input,Button,Row,Col,List } from 'antd';
 
 import store from './store'; 
+
 import { CHANGE_VALUE,ADD_ITEM,DELETE_ITEM } from './store/actionTypes.js';
 
 //引入css
