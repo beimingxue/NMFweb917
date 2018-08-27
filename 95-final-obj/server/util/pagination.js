@@ -72,10 +72,10 @@ let pagination = (options)=>{
 			.limit(limit)
 			.then((docs)=>{
 				resolve({
-					docs:docs,
-					page:page*1,
-					list:list,
-					pages:pages
+					list:docs,
+					current:page*1,
+					pageSize:limit,
+					total:count
 				})		
 			})
 		})

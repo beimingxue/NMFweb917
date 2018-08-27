@@ -68,7 +68,7 @@ router.post("/login",(req,res)=>{
 
 //处理后台首页数据
 router.get('/count',(req,res)=>{
-	console.log('count');
+	//console.log('count');
 	 res.json({
 	 	code:0,
 	 	data:{
@@ -78,6 +78,37 @@ router.get('/count',(req,res)=>{
 	 	}
 	 })
 })
+//显示用户列表
+/*router.get('/users',(req,res)=>{
+
+	//获取所有用户的信息,分配给模板
+
+	let options = {
+		page: req.query.page,//需要显示的页码
+		model:UserModel, //操作的数据模型
+		query:{}, //查询条件
+		projection:'', //投影，
+		sort:{_id:-1} //排序
+	}
+
+	pagination(options)
+	.then((result)=>{
+		console.log('abc::');
+		res.json({
+			code:0,
+			data:{
+			     current:result.current,
+			     total:result.total,
+			     pageSize:result.pageSize,
+			     list:result.list
+			}
+		})
+	})
+})*/
+
+
+
+
 
 //权限控制
 router.use((req,res,next)=>{
@@ -96,31 +127,6 @@ router.get("/",(req,res)=>{
 	});
 })
 
-//显示用户列表
-router.get('/users',(req,res)=>{
-
-	//获取所有用户的信息,分配给模板
-
-	let options = {
-		page: req.query.page,//需要显示的页码
-		model:UserModel, //操作的数据模型
-		query:{}, //查询条件
-		projection:'_id username isAdmin', //投影，
-		sort:{_id:-1} //排序
-	}
-
-	pagination(options)
-	.then((data)=>{
-		res.render('admin/user_list',{
-			userInfo:req.userInfo,
-			users:data.docs,
-			page:data.page,
-			list:data.list,
-			pages:data.pages,
-			url:'/admin/users'
-		});	
-	})
-})
 
 //添加文章是处理图片上传
 router.post('/uploadImages',upload.single('upload'),(req,res)=>{

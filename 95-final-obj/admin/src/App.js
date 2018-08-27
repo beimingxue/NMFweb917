@@ -13,6 +13,8 @@ import {
 import Login from 'pages/login/index.js';
 import Home from 'pages/home';
 import User from 'pages/user';
+import Category from 'pages/category';
+
 import ErrorPage from 'common/error-page';
 import { getUserName } from 'util';
 
@@ -51,8 +53,9 @@ class App extends Component{
 				    <Switch>
 					    <ProtectedRoute exact path='/' component={ Home }/>
 					    <ProtectedRoute path='/user' component={ User }/>
+					    <ProtectedRoute path='/category' component={ Category }/>
 						<LoginRoute path='/login' component={ Login }/>
-						<Router component={ ErrorPage } />
+						<Route component={ ErrorPage } />
 					</Switch>
 				</div>
 			</Router>				
