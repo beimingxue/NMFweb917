@@ -27,7 +27,6 @@ const router = Router();
 // 		}
 // 	})
 // });
-//权限控制
 
 
 //用户登录
@@ -54,11 +53,11 @@ router.post("/login",(req,res)=>{
 			 result.data = {
 			 	username:user.username
 			 }
-			 res.send(result);
+			 res.json(result);
 		}else{
 			result.code = 10;
 			result.message = '用户名和密码错误'
-			res.send(result);
+			res.json(result);
 		}
 	})
 	/*.catch(e=>{
@@ -67,11 +66,27 @@ router.post("/login",(req,res)=>{
 	})*/
 })
 
+//处理后台首页数据
+router.get('/count',(req,res)=>{
+	console.log('count');
+	 res.json({
+	 	code:0,
+	 	data:{
+	 		usernum: 300,
+	 		ordernum:301,
+	 		productnum:302
+	 	}
+	 })
+})
+
+//权限控制
 router.use((req,res,next)=>{
 	if(req.userInfo.isAdmin){
 		next()
 	}else{
-		res.send('<h1>请用管理员账号登录</h1>');
+		res.send({
+           code:10
+ 		});
 	}
 })
 //显示管理员首页

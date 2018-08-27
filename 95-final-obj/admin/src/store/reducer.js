@@ -3,8 +3,10 @@
 import { combineReducers } from 'redux-immutable';
 
 //配置别名之后
-import { reducer as loginReducer } from 'pages/login/store'
+import { reducer as loginReducer } from 'pages/login/store';
+import { reducer as HomeReducer } from 'pages/home/store'
 
 export default combineReducers({
-	login:loginReducer
+	login:loginReducer,
+	home:HomeReducer
 })

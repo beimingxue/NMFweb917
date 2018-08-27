@@ -12,7 +12,9 @@ import {
 //引入login
 import Login from 'pages/login/index.js';
 import Home from 'pages/home';
-import { getUserName } from 'util'
+import User from 'pages/user';
+import ErrorPage from 'common/error-page';
+import { getUserName } from 'util';
 
 //引入css
 import './App.css';
@@ -48,7 +50,9 @@ class App extends Component{
 				<div className="App">
 				    <Switch>
 					    <ProtectedRoute exact path='/' component={ Home }/>
+					    <ProtectedRoute path='/user' component={ User }/>
 						<LoginRoute path='/login' component={ Login }/>
+						<Router component={ ErrorPage } />
 					</Switch>
 				</div>
 			</Router>				

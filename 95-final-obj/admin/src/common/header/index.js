@@ -21,7 +21,7 @@ class MyHeader extends Component{
   	 	  url:USER_LOGOUT
   	 })
   	 .then((result)=>{
-  	 	  console.log('aa');
+  	 	  console.log('result');
   	 		removeUserName();
 		  	window.location.href = '/login'
   	 })

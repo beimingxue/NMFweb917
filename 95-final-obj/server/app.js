@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Cookies = require('cookies');
+//const cookieParser = require('cookie-parser')
 const session = require('express-session');
 const MongoStore = require("connect-mongo")(session);
 
@@ -40,6 +41,7 @@ app.use((req,res,next)=>{
         next();
      }
 })
+//app.use(cookieParser())
 
 //设置cookie的中间件,后面所有的中间件都会有cookie
 app.use(session({
@@ -63,6 +65,8 @@ app.use((req,res,next)=>{
 
 	req.userInfo  = req.session.userInfo || {};
 	next();	
+    //console.log('req::',req.cookies);
+    //console.log('userInfo::',req.userInfo);
 });
 
 //添加处理post请求的中间件

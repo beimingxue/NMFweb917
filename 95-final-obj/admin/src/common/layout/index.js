@@ -10,7 +10,7 @@ const { Content } = Layout;
 class MyLayout extends Component{
 
 	render(){
-		console.log('layout');
+		//console.log('layout');
 		return(
 			<div>
 					<Layout>

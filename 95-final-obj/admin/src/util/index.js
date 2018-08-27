@@ -1,17 +1,20 @@
 //工具性函数
 import axios from 'axios';
 
+
 export const request = (options)=>{
 	return new Promise((resolve,reject)=>{
         axios({
 			method: options.method || 'get',
 			url: options.url || '',
-			data: options.data || null
+			data: options.data || null,
+			withCredentials:true
 		})
 		.then(result=>{
 			//adta传入 actionCreator → result 
 			let data = result.data;
 			if(data.code == 10){
+				removeUserName();
 				window.location.href = '/login';
 				reject(data.message);
 			}else{
