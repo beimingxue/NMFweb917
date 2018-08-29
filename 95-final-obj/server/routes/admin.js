@@ -12,21 +12,21 @@ const path = require('path');
 const router = Router();
 
 //初始化admin
-// router.get("/init",(req,res)=>{
-// 	//插入数据到数据库
-// 	new UserModel({
-// 		username:'admin',
-// 		password:hmac('admin'),
-// 		isAdmin:true
-// 	})
-// 	.save((err,newUser)=>{
-// 		if(!err){//插入成功
-// 			res.send('ok')
-// 		}else{
-// 			res.send('err')				
-// 		}
-// 	})
-// });
+/* router.get("/init",(req,res)=>{
+ 	//插入数据到数据库
+ 	new UserModel({
+ 		username:'admin',
+ 		password:hmac('admin'),
+ 		isAdmin:true
+ 	})
+ 	.save((err,newUser)=>{
+ 		if(!err){//插入成功
+			res.send('ok')
+		}else{
+ 			res.send('err')				
+ 		}
+ 	})
+ });*/
 
 
 //用户登录
@@ -79,7 +79,7 @@ router.get('/count',(req,res)=>{
 	 })
 })
 //显示用户列表
-/*router.get('/users',(req,res)=>{
+router.get('/users',(req,res)=>{
 
 	//获取所有用户的信息,分配给模板
 
@@ -104,7 +104,7 @@ router.get('/count',(req,res)=>{
 			}
 		})
 	})
-})*/
+})
 
 
 

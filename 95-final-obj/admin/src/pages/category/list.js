@@ -1,17 +1,20 @@
 //alert('cateory')
 //console.log('aa');
 import React,{ Component } from 'react';
-import { Route,Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Layout from 'common/layout';
+//import MySider from 'common/sider';
 
 class CategoryList extends Component{
 	render(){
-		console.log('cateory-get');
+		//console.log('category-get...');
 		return(
-			    <Layout>
-                   <div>11dsa</div>
-                 </Layout>
+			    <Layout>  	
+			       <div>
+			         <Link to='/category/add'>add</Link>
+			       </div>
+			    </Layout>
   			)
 	}
 }
