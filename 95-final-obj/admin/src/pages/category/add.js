@@ -13,15 +13,16 @@ class NormalCategoryAdd extends Component{
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-	/*componentDidMount(){
+	//生命周期 在第一次渲染后调用，只在客户端
+	componentDidMount(){//一级分类
 		this.props.getLevelOneCategories();
-	}*/
+	}
 	handleSubmit(e){
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 		  if (!err) {
-		  	console.log(values);
-		    //this.props.handleAdd(values);
+		  	//console.log(values);
+		    this.props.handleAdd(values);
 		  }
 		});
 	}
@@ -80,12 +81,12 @@ class NormalCategoryAdd extends Component{
 				          {getFieldDecorator('pid', {
 				            rules: [
 				            {
-				              required: true, message: '请输选择父级分类',
+				              required: true, message: '请选择父级分类',
 				            }],
 				          })(
 						    <Select initialValue="0" style={{ width: 300 }}>
 						      <Option value="0">根分类</Option>
-						      <Option value="1">一级分类</Option>
+						      {/*<Option value="1">一级分类</Option>*/}
 						      {/*{
 						      	this.props.levelOneCategories.map((category)=>{
 						      		return <Option key={category.get('_id')} value={category.get('_id')}>根分类/{category.get('name')}</Option>
@@ -113,19 +114,22 @@ const CategoryAdd = Form.create()(NormalCategoryAdd);
 //redux管理登录数据 将数据传输 
 const mapStateToProps = (state)=>{
    return{
-     isFetching:state.get('category').get('isAddFetching')
+     isFetching:state.get('category').get('isAddFetching'),
+     levelOneCategories:state.get('category').get('levelOneCategories')
    }
 }
 //方法(action实现业务逻辑)  dispatch 给 action 再给store
-/*const mapDispatchToProps = (dispatch)=>{
+const mapDispatchToProps = (dispatch)=>{
    return{
-     handleLogin:(values)=>{
-         const action = actionCreator.getLoginAction(values);
-         dispatch(action);
-     }
+     handleAdd:(values)=>{
+         dispatch(actionCreator.getAddAction(values));
+     },
+     getLevelOneCategories:()=>{
+		 dispatch(actionCreator.getLevelOneCategoriesAction());
+	 }
    }
-}*/
+}
 
-export default connect(mapStateToProps,null)(CategoryAdd);
+export default connect(mapStateToProps,mapDispatchToProps)(CategoryAdd);
 
 

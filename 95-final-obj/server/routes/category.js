@@ -3,18 +3,81 @@ const CategoryModel = require('../models/category.js');
 const pagination = require('../util/pagination.js');
 
 const router = Router();
-
+//console.log('category');
 //权限控制
 router.use((req,res,next)=>{
 	if(req.userInfo.isAdmin){
 		next()
 	}else{
-		res.send('<h1>请用管理员账号登录</h1>');
+		res.send({
+           code:10
+ 		});
 	}
 })
+//添加分类
+router.post("/",(req,res)=>{
+	let body = req.body;
+	//console.log('body::',body)
+	CategoryModel
+	.findOne({name:body.name},{pid:body.pid})
+	.then((cate)=>{
+		if(cate){//
+	 		res.json({
+	 			code:1,
+	 			message:"添加分类失败,分类已存在！"
+	 		})
+		}else{
+			new CategoryModel({
+				name:body.name,
+				pid:body.pid
+			})
+			.save()
+			.then((newCate)=>{
+				if(newCate){//
+					res.json({
+						code:0
+					})
+				}
+			})
+			.catch((e)=>{//
+		 		res.json({
+		 			code:1,
+		 			message:"分类已存在！服务器端错误"
+	 		    })
+			})
+		}
+	})
+})
+//获取分类
+router.get("/",(req,res)=>{
+	let pid = req.query.pid;
+	console.log('later-category');
+	CategoryModel.find({pid:pid})
+	.then((ddd)=>{
+		res.json({
+			code:0,
+			data: ddd
+		})		
+	})
+	.catch((e)=>{
+		res.json({
+ 			code:1,
+ 			message:"获取分类失败,服务器端错误2"
+ 		})
+	})
+});
+
+
+
+
+
+
+
+//later-----------------------------
+
 
 //显示分类管理页面
-router.get("/",(req,res)=>{
+/*router.get("/",(req,res)=>{
 	
 	let options = {
 		page: req.query.page,//需要显示的页码
@@ -35,7 +98,7 @@ router.get("/",(req,res)=>{
 			url:'/category'
 		});	
 	})
-})
+})*/
 
 //显示新增页面
 router.get("/add",(req,res)=>{
@@ -81,17 +144,7 @@ router.post("/add",(req,res)=>{
 })
 
 //显示编辑页面
-router.get("/edit/:id",(req,res)=>{
-	let id = req.params.id;
-	
-	CategoryModel.findById(id)
-	.then((category)=>{
-		res.render('admin/category_add_edit',{
-			userInfo:req.userInfo,
-			category:category
-		});		
-	});
-});
+
 
 //处理编辑请求
 router.post('/edit',(req,res)=>{

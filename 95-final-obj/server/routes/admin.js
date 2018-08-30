@@ -93,7 +93,7 @@ router.get('/users',(req,res)=>{
 
 	pagination(options)
 	.then((result)=>{
-		console.log('abc::');
+		//console.log('abc::');
 		res.json({
 			code:0,
 			data:{
