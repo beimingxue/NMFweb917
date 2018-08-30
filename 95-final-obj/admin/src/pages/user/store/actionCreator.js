@@ -32,9 +32,9 @@ export const getPageAction = (page)=>{
       .then(function(result){
           //let data = result.data;
           console.log(result.data.username)
-          //登录成功
+          
           if(result.code == 0){
-              window.location.href = '/'
+              dispatch()
           }else if(result.code == 10){
               message.error(result.message);
           }
