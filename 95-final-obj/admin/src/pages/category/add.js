@@ -14,7 +14,7 @@ class NormalCategoryAdd extends Component{
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	//生命周期 在第一次渲染后调用，只在客户端
-	componentDidMount(){//一级分类
+	componentDidMount(){//一级分类  
 		this.props.getLevelOneCategories();
 	}
 	handleSubmit(e){
@@ -71,7 +71,7 @@ class NormalCategoryAdd extends Component{
 				              required: true, message: '请输入分类名称',
 				            }],
 				          })(
-				            <Input />
+				            <Input style={{ width: 300 }}/>
 				          )}
 				        </FormItem>
 				        <FormItem
@@ -87,11 +87,11 @@ class NormalCategoryAdd extends Component{
 						    <Select initialValue="0" style={{ width: 300 }}>
 						      <Option value="0">根分类</Option>
 						      {/*<Option value="1">一级分类</Option>*/}
-						      {/*{
+						      {
 						      	this.props.levelOneCategories.map((category)=>{
 						      		return <Option key={category.get('_id')} value={category.get('_id')}>根分类/{category.get('name')}</Option>
 						      	})
-						      }*/}
+						      }
 						    </Select>
 				          )}
 				        </FormItem>				        

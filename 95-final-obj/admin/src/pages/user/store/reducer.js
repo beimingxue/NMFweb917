@@ -7,9 +7,10 @@ import * as types from './actionTypes.js'
 
 const defaultState = fromJS({
 	isFetching:false,
-	current:2,
-	total:300,
-	pageSize:10
+	current:0,
+	total:0,
+	pageSize:0,
+	list:[]
 })
 
 export default (state=defaultState,action)=>{

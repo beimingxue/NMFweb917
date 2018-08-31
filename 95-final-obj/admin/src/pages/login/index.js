@@ -21,6 +21,7 @@ class NormalLoginForm extends Component{
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+         //console.log('bhllll')
          //1.调用下面的mapStateToProps方法里面的handleLogin函数
          //2.传参
           this.props.handleLogin(values);

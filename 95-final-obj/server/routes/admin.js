@@ -31,7 +31,6 @@ const router = Router();
 
 //用户登录
 router.post("/login",(req,res)=>{
-	
 	let body = req.body;
 	//定义返回数据
 	let result  = {
@@ -42,9 +41,9 @@ router.post("/login",(req,res)=>{
 	UserModel
 	.findOne({username:body.username,password:hmac(body.password),isAdmin:true})
 	.then((user)=>{
-		//console.log('1aaaa')
+		console.log('1aaaa')
 		if(user){//登录成功
-			//console.log('aaaa')
+			console.log('aaaa')
 			 req.session.userInfo = {
 			 	_id:user._id,
 			 	username:user.username,
@@ -55,15 +54,27 @@ router.post("/login",(req,res)=>{
 			 }
 			 res.json(result);
 		}else{
-			result.code = 10;
+			//console.log('nmf');
+			result.code = 1;
 			result.message = '用户名和密码错误'
 			res.json(result);
 		}
 	})
-	/*.catch(e=>{
-		//console.log('2aaaa')
+	.catch(e=>{
+		console.log('2aaaa')
 		console.log(e)
-	})*/
+	})
+})
+
+//权限控制
+router.use((req,res,next)=>{
+	if(req.userInfo.isAdmin){
+		next()
+	}else{
+		res.send({
+           code:10
+ 		});
+	}
 })
 
 //处理后台首页数据
@@ -110,16 +121,7 @@ router.get('/users',(req,res)=>{
 
 
 
-//权限控制
-router.use((req,res,next)=>{
-	if(req.userInfo.isAdmin){
-		next()
-	}else{
-		res.send({
-           code:10
- 		});
-	}
-})
+
 //显示管理员首页
 router.get("/",(req,res)=>{
 	res.render('admin/index',{

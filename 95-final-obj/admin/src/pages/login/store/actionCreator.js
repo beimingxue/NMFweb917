@@ -34,21 +34,19 @@ export const getLoginAction = (values)=>{
           console.log(result.data.username)
           //登录成功
           if(result.code == 0){
+            console.log('success')
             setUserName(result.data.username)
              //window.localStorage.setItem('username',result.data.username)
               window.location.href = '/'
-          }else if(result.code == 10){
+          }else if(result.code == 1){
+            console.log('err')
               message.error(result.message);
           }
-          /*this.state = {
-             isFetching:true
-          }*/
+          //dispatch(getLoginDoneAction())
       })
       .catch(function(err){
-        message.error('网络错误,请稍后再试')
-        /*this.state = {
-           isFetching:true
-        }*/
+        message.error('网络错误,请稍后再试1')
+       //dispatch(getLoginDoneAction())
       })
 	 }
 }

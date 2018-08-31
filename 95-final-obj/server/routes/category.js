@@ -33,10 +33,23 @@ router.post("/",(req,res)=>{
 			})
 			.save()
 			.then((newCate)=>{
-				if(newCate){//
-					res.json({
-						code:0
-					})
+				if(newCate){//如果添加的是一级分类,返回新的一级分类= = 
+					if(body.pid ==0 ){
+						console.log('codedd')
+						CategoryModel.find({pid:0},"_id name") 
+						.then((categories)=>{
+							res.json({
+								code:0,
+								data:categories
+							})	
+						})
+					}else{
+						console.log('save--')
+						res.json({
+						  code:0
+					    })
+					}
+					
 				}
 			})
 			.catch((e)=>{//
@@ -51,20 +64,48 @@ router.post("/",(req,res)=>{
 //获取分类
 router.get("/",(req,res)=>{
 	let pid = req.query.pid;
-	console.log('later-category');
-	CategoryModel.find({pid:pid})
-	.then((ddd)=>{
-		res.json({
-			code:0,
-			data: ddd
-		})		
-	})
-	.catch((e)=>{
-		res.json({
- 			code:1,
- 			message:"获取分类失败,服务器端错误2"
- 		})
-	})
+	let page = req.query.page;
+	//console.log('later-category',pid,'page::',page);
+    
+    if(page){
+        let options = {
+			page: req.query.page,//需要显示的页码
+			model:CategoryModel, //操作的数据模型
+			query:{}, //查询条件
+			projection:'', //投影，
+			sort:{_id:-1} //排序
+	    }
+
+		pagination(options)
+		.then((result)=>{
+			//console.log('abc::');
+			res.json({
+				code:0,
+				data:{
+				     current:result.current,
+				     total:result.total,
+				     pageSize:result.pageSize,
+				     list:result.list
+				}
+			})
+		})
+    }else{
+	    CategoryModel.find({pid:pid},"_id name pid order")
+		.then((categories)=>{
+			//console.log('huoqu')
+			res.json({
+				code:0,
+				data: categories
+			})		
+		})
+		.catch((e)=>{
+			res.json({
+	 			code:1,
+	 			message:"获取分类失败,服务器端错误2"
+	 		})
+		})
+    }
+
 });
 
 
