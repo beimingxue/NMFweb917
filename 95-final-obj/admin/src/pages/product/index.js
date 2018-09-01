@@ -9,7 +9,7 @@ import ProductSave from './save.js';
 
 class Product extends Component{
 	render(){
-		console.log('product-get');
+		//console.log('product-get');
 		return(
                  
                 <Switch>

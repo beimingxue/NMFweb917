@@ -71,7 +71,7 @@ export const getAddAction = (values)=>{
 
 export const getLevelOneCategoriesAction = ()=>{
   return (dispatch)=>{
-    console.log('hahahaa');
+    //console.log('hahahaa');
       request({
         method: 'get',
         url: GET_CATEGORIES,
@@ -81,7 +81,7 @@ export const getLevelOneCategoriesAction = ()=>{
       })
       .then(function(result){
           if(result.code == 0){
-              console.log('exc::::',result);
+              //console.log('exc::::',result);
               dispatch(setLevelOneCategories(result.data));
            }else{
              message.error(result.message)

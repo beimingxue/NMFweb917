@@ -71,7 +71,7 @@ export const getAddAction = (values)=>{
 
 export const getLevelOneCategoriesAction = ()=>{
   return (dispatch)=>{
-    console.log('hahahaa');
+    //console.log('hahahaa');
       request({
         method: 'get',
         url: GET_CATEGORIES,

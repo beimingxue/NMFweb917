@@ -3,7 +3,11 @@ import { Breadcrumb,Form, Input,Select,Button,InputNumber } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreator } from './store';
 import Layout from 'common/layout';
+import CategorySelector from './category-selector.js';
+import UploadImage from 'common/upload-image';
+import RichEditor from 'common/rich-editor';
 
+import { UPLOAD_PRODUCT_IMAGE,UPLOAD_PRODUCT_DETAIL_IMAGE } from 'api';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -96,7 +100,11 @@ class NormalProductSave extends Component{
 				          {...formItemLayout}
 				          label="所属分类"
 				        >
-				          
+				          <CategorySelector 
+				                getCategoryId={(pid,id)=>{
+				        			 console.log(pid,id)
+				        		}}
+				          />
 				        </FormItem>
 				        <FormItem
 				          {...formItemLayout}
@@ -138,11 +146,23 @@ class NormalProductSave extends Component{
 				          {...formItemLayout}
 				          label="商品图片"
 				        >
+				          <UploadImage
+				             action={UPLOAD_PRODUCT_IMAGE}
+				             max={3} 
+				             getFileList={
+                                 (filelist)=>{
+                                     console.log('save:',filelist);
+                                 }
+				             }
+				          />
 				        </FormItem>	
 				        <FormItem
 				          {...formItemLayout}
 				          label="商品详情"
 				        >
+				         <RichEditor
+				            url={UPLOAD_PRODUCT_DETAIL_IMAGE} 
+				         />
 				        </FormItem>
 
 

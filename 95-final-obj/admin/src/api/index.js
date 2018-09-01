@@ -10,3 +10,6 @@ export const GET_USERS = SERVER + 'admin/users';
 export const ADD_CATEGORY = SERVER + 'category';
 export const GET_CATEGORIES = SERVER + 'category';
 
+export const UPLOAD_PRODUCT_IMAGE = SERVER + 'product/uploadImage';
+export const UPLOAD_PRODUCT_DETAIL_IMAGE = SERVER + 'product/uploadDetailImage';
+
