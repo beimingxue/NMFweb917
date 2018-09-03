@@ -52,4 +52,52 @@ router.post("/uploadDetailImage",upload.single('upload'),(req,res)=>{
 	
 
 })
+
+//添加商品
+router.post("/",(req,res)=>{
+	let body = req.body;
+	//console.log('body::',body)
+	CategoryModel
+	.findOne({name:body.name},{pid:body.pid})
+	.then((cate)=>{
+		if(cate){//
+	 		res.json({
+	 			code:1,
+	 			message:"添加分类失败,分类已存在！"
+	 		})
+		}else{
+			new CategoryModel({
+				name:body.name,
+				pid:body.pid
+			})
+			.save()
+			.then((newCate)=>{
+				if(newCate){//如果添加的是一级分类,返回新的一级分类= = 
+					if(body.pid ==0 ){
+						console.log('codedd')
+						CategoryModel.find({pid:0},"_id name") 
+						.then((categories)=>{
+							res.json({
+								code:0,
+								data:categories
+							})	
+						})
+					}else{
+						console.log('save--')
+						res.json({
+						  code:0
+					    })
+					}
+					
+				}
+			})
+			.catch((e)=>{//
+		 		res.json({
+		 			code:1,
+		 			message:"分类已存在！服务器端错误"
+	 		    })
+			})
+		}
+	})
+})
 module.exports = router;
