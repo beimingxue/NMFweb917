@@ -28,22 +28,26 @@ class RichEditor extends Component{
 			  'outdent',
 			  'alignment'
 		]
-
+        //jquery ajax跨域携带cookie设置
 		$.ajaxSetup({
-			xhrFileds:{
+			xhrFields:{
 				withCredentials:true
 			}
 		})
     }
    
 	componentDidMount(){//一级分类  
-		new Simditor({
-			textarea:this.textarea,
+		this.editor = new Simditor({
+			textarea:$(this.textarea),
 			toolbar:this.toolbar,
 			upload:{
 				url:this.props.url,
 				fileKey:'upload'
 			}
+		})
+		this.editor.on('valuechanged',()=>{
+			//console.log(this.editor.getValue());
+			this.props.getRichEditorValue(this.editor.getValue())
 		})
 	}
 

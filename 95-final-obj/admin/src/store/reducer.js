@@ -7,12 +7,12 @@ import { reducer as loginReducer } from 'pages/login/store';
 import { reducer as HomeReducer } from 'pages/home/store';
 import { reducer as userReducer } from 'pages/user/store';
 import { reducer as categoryReducer } from 'pages/category/store';
-
+import { reducer as productReducer } from 'pages/product/store';
 
 export default combineReducers({
 	login:loginReducer,
 	home:HomeReducer,
 	user:userReducer,
-	category:categoryReducer
-
+	category:categoryReducer,
+    product:productReducer
 })

@@ -6,6 +6,14 @@ import * as types from './actionTypes.js'
 //loading={this.props.isFetching}
 
 const defaultState = fromJS({
+    parentCategoryId:'',
+    categoryId:'',
+    fileList:'',
+    images:'',
+    detail:'',
+    categoryIdValidateStatus:'',
+	categoryIdHelp:'',
+
 	isAddFetching:false,
 	levelOneCategories:[],
 	isPageFetching:false,
@@ -16,6 +24,29 @@ const defaultState = fromJS({
 })
 
 export default (state=defaultState,action)=>{
+    if(action.type === types.SET_CATEGORY){
+    	return state.merge({
+    		parentCategoryId:action.payload.parentCategoryId,
+    		categoryId:action.payload.categoryId
+    	})
+    }
+    if(action.type === types.SET_IMAGES){
+    	return state.set('images',action.payload)
+    }
+    if(action.type === types.SET_DETAIL){
+    	return state.set('detail',action.payload)
+    }
+    if(action.type === types.SET_CATEGORY_ERROR){
+        console.log('isgetin')
+		return state.merge({
+			categoryIdValidateStatus:'error',
+			categoryIdHelp:'请选择所属分类',			
+		})
+	}
+	
+
+   
+
 	if(action.type === types.ADD_REQUEST){
 		return state.set('isAddFetching',true)
 	}

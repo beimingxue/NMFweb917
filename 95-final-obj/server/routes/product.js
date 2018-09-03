@@ -30,7 +30,7 @@ router.use((req,res,next)=>{
 router.post("/uploadImage",upload.single('file'),(req,res)=>{
 	//地址给前端 
 	const filePath = 'http://127.0.0.1:3000/product-images/'+req.file.filename;
-	console.log(filePath);
+	//console.log(filePath);
     res.send(filePath);
 	
 
@@ -40,8 +40,15 @@ router.post("/uploadDetailImage",upload.single('upload'),(req,res)=>{
 	//console.log("isgetin")
 	//地址给前端 
 	const filePath = 'http://127.0.0.1:3000/product-images/'+req.file.filename;
-	console.log(filePath);
-    res.send(filePath);
+	//console.log(filePath);
+    //res.send(filePath);
+
+    //返回json
+    res.json({
+    	"success": true,
+    	"msg":'上传成功',
+        "file_path":filePath
+    })
 	
 
 })

@@ -1,20 +1,44 @@
 import axios from 'axios';
 
 import * as types from './actionTypes.js';
-import { ADD_CATEGORY,GET_CATEGORIES } from 'api';
+import { ADD_PRODUCT,GET_CATEGORIES } from 'api';
 //message 错误提示
 import { message } from 'antd';
 import { request,setUserName } from 'util';
 
-const getAddRequstAction = ()=>{
+export const getSetCategoryAction =(parentCategoryId,categoryId)=>({
+    type:types.SET_CATEGORY,
+    payload:{
+      parentCategoryId,
+      categoryId
+    }
+
+})
+export const getSetImagesAction =(fileList)=>({
+    type:types.SET_IMAGES,
+    payload:{
+      fileList
+    }
+
+})  
+export const getSetDetailAction =(value)=>({
+    type:types.SET_DETAIL,
+    payload:{
+      value
+    }
+
+}) 
+
+
+const getSaveRequstAction = ()=>{
   return {
-    type:types.ADD_REQUEST
+    type:types.SAVE_REQUEST
   }
 }
 
-const getAddDoneAction = ()=>{
+const getSaveDoneAction = ()=>{
   return {
-    type:types.ADD_DONE
+    type:types.SAVE_DONE
   }
 }
 
@@ -41,13 +65,31 @@ const getSetPageAction = (payload)=>{
     payload
   }
 }
-export const getAddAction = (values)=>{
-	return (dispatch)=>{
-		  dispatch(getAddRequstAction());
+const setCategoryError = ()=>({
+  type:types.SET_CATEGORY_ERROR
+})
+export const getSaveAction = (values)=>{
+	return (dispatch,getState)=>{
+      //console.log('aaaaaa')
+      const state = getState().get('product');
+      const  categoryId = state.get('categoryId');
+      if(!categoryId){
+      dispatch(setCategoryError())
+           return;
+      }
+      /*if(err){
+           return;
+      }*/
+		  dispatch(getSaveRequstAction());
       request({
         method: 'post',
-        url: ADD_CATEGORY,
-        data: values  
+        url: ADD_PRODUCT,
+        data: {
+            ...values,
+          category:categoryId,
+          images:state.get('images'),
+          detail:state.get('detail')
+        } 
       })
       .then(function(result){
           if(result.code == 0){
@@ -59,12 +101,12 @@ export const getAddAction = (values)=>{
            }else{
              message.error(result.message)
            }
-          dispatch(getAddDoneAction());
+          dispatch(getSaveDoneAction());
 
       })
       .catch(function(err){
         message.error('网络错误,请稍后再试')
-        dispatch(getAddDoneAction());
+        dispatch(getSaveDoneAction());
       })
 	 }
 }

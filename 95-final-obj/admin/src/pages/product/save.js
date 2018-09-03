@@ -26,7 +26,7 @@ class NormalProductSave extends Component{
 		this.props.form.validateFields((err, values) => {
 		  if (!err) {
 		  	//console.log(values);
-		    this.props.handleAdd(values);
+		    this.props.handleSave(values);
 		  }
 		});
 	}
@@ -99,10 +99,14 @@ class NormalProductSave extends Component{
 				        <FormItem
 				          {...formItemLayout}
 				          label="所属分类"
+				          required={true}
+				          validateStatus={this.props.categoryIdValidateStatus}
+				          help={this.props.categoryIdHelp}
 				        >
 				          <CategorySelector 
-				                getCategoryId={(pid,id)=>{
-				        			 console.log(pid,id)
+				                getCategoryId={(parentCategoryId,categoryId)=>{
+				        			 //console.log(pid,id)
+				        			 this.props.handleCategory(parentCategoryId,categoryId)
 				        		}}
 				          />
 				        </FormItem>
@@ -150,8 +154,9 @@ class NormalProductSave extends Component{
 				             action={UPLOAD_PRODUCT_IMAGE}
 				             max={3} 
 				             getFileList={
-                                 (filelist)=>{
-                                     console.log('save:',filelist);
+                                 (fileList)=>{
+                                     //console.log('save:',fileList);
+                                     this.props.handleImages(fileList);
                                  }
 				             }
 				          />
@@ -162,6 +167,10 @@ class NormalProductSave extends Component{
 				        >
 				         <RichEditor
 				            url={UPLOAD_PRODUCT_DETAIL_IMAGE} 
+				            getRichEditorValue = {(value)=>{
+                               //console.log(value);
+                               this.props.handleDetail(value);
+				            }}
 				         />
 				        </FormItem>
 
@@ -185,6 +194,8 @@ const ProductSave = Form.create()(NormalProductSave);
 //redux管理登录数据 将数据传输 
 const mapStateToProps = (state)=>{
    return{
+   	 categoryIdValidateStatus:state.get('product').get('categoryIdValidateStatus'),
+	 categoryIdHelp:state.get('product').get('categoryIdHelp'),
      isFetching:state.get('category').get('isAddFetching'),
      levelOneCategories:state.get('category').get('levelOneCategories')
    }
@@ -192,8 +203,17 @@ const mapStateToProps = (state)=>{
 //方法(action实现业务逻辑)  dispatch 给 action 再给store
 const mapDispatchToProps = (dispatch)=>{
    return{
-     handleAdd:(values)=>{
-         dispatch(actionCreator.getAddAction(values));
+     handleSave:(values)=>{
+         dispatch(actionCreator.getSaveAction(values));
+     },
+     handleCategory:(parentCategoryId,categoryId)=>{
+         dispatch(actionCreator.getSetCategoryAction(parentCategoryId,categoryId));
+     },
+     handleImages:(fileList)=>{
+     	 dispatch(actionCreator.getSetImagesAction(fileList));
+     },
+     handleDetail:(value)=>{
+     	 dispatch(actionCreator.getSetDetailAction(value));
      },
      getLevelOneCategories:()=>{
 		 dispatch(actionCreator.getLevelOneCategoriesAction());

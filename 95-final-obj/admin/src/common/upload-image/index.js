@@ -33,7 +33,7 @@ class UploadImage extends React.Component {
     this.setState({ fileList },()=>{
         this.props.getFileList(fileList.map((file)=>{
                 return  file.response;
-        }).join(','));
+        }).join(','))
     })
   }
   render() {

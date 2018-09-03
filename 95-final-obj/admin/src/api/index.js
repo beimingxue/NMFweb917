@@ -12,4 +12,5 @@ export const GET_CATEGORIES = SERVER + 'category';
 
 export const UPLOAD_PRODUCT_IMAGE = SERVER + 'product/uploadImage';
 export const UPLOAD_PRODUCT_DETAIL_IMAGE = SERVER + 'product/uploadDetailImage';
+export const ADD_PRODUCT = SERVER +'product';
 
