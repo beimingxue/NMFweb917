@@ -12,7 +12,7 @@ const path = require('path');
 const router = Router();
 
 //初始化admin
-/* router.get("/init",(req,res)=>{
+/*router.get("/init",(req,res)=>{
  	//插入数据到数据库
  	new UserModel({
  		username:'admin',

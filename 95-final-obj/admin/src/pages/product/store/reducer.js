@@ -31,6 +31,7 @@ export default (state=defaultState,action)=>{
     	})
     }
     if(action.type === types.SET_IMAGES){
+    	console.log('aaadsadasd');
     	return state.set('images',action.payload)
     }
     if(action.type === types.SET_DETAIL){

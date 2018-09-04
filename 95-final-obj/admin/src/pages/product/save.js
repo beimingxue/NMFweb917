@@ -26,7 +26,7 @@ class NormalProductSave extends Component{
 		this.props.form.validateFields((err, values) => {
 		  if (!err) {
 		  	//console.log(values);
-		    this.props.handleSave(values);
+		    this.props.handleSave(err,values);
 		  }
 		});
 	}
@@ -203,8 +203,8 @@ const mapStateToProps = (state)=>{
 //方法(action实现业务逻辑)  dispatch 给 action 再给store
 const mapDispatchToProps = (dispatch)=>{
    return{
-     handleSave:(values)=>{
-         dispatch(actionCreator.getSaveAction(values));
+     handleSave:(err,values)=>{
+         dispatch(actionCreator.getSaveAction(err,values));
      },
      handleCategory:(parentCategoryId,categoryId)=>{
          dispatch(actionCreator.getSetCategoryAction(parentCategoryId,categoryId));

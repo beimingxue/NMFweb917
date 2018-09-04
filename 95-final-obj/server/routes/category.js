@@ -17,7 +17,7 @@ router.use((req,res,next)=>{
 //添加分类
 router.post("/",(req,res)=>{
 	let body = req.body;
-	//console.log('body::',body)
+	console.log('body::',body)
 	CategoryModel
 	.findOne({name:body.name},{pid:body.pid})
 	.then((cate)=>{
