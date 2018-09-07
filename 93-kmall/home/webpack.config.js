@@ -41,6 +41,7 @@ module.exports = {
         alias:{
             pages:path.resolve(__dirname,'./src/pages'),
             util:path.resolve(__dirname,'./src/util'),
+            service:path.resolve(__dirname,'./src/service'),
             node_modules:path.resolve(__dirname,'./node_modules'),
             common:path.resolve(__dirname,'./src/common')
         }
@@ -97,6 +98,12 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     port:3002,
-    historyApiFallback:true
+    //historyApiFallback:true
+    proxy:{
+        "/user":{
+            target: 'http://127.0.0.1:3000',  //目标接口域名
+            changeOrigin: true,  //是否跨域
+        }
+    }
   }
 }

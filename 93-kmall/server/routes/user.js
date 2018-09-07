@@ -103,7 +103,15 @@ router.post("/login",(req,res)=>{
 	})
 
 })
-
+router.use((req,res,next)=>{
+	if(req.userInfo._id){
+		next()
+	}else{
+		res.json({
+			code:10
+		})
+	}
+})
 //退出
 router.get('/logout',(req,res)=>{
 	let result  = {

@@ -1,0 +1,8 @@
+.form{
+	background: #bdbdbd;
+	overflow: hidden;
+}
+.form-box{
+    width: 400px;
+    margin: 50px auto;
+}

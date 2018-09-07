@@ -1,0 +1,10 @@
+.logo-box{
+	background: #fff;
+	padding: 10px;
+}
+.logo-text{
+	text-decoration: none;
+	color: red;
+	font-size: 30px;
+	font-weight: bold;
+}
