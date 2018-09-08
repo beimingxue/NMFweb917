@@ -7,4 +7,83 @@
 <body>
 	
 </body>
+<script>
+	console.log('aa',this);
+	/*function a(){
+	    var user = "追梦子";
+	    console.log('1:',user);
+	    console.log('2:',this.user); //undefined
+	    console.log('3:',this); //Window
+	}
+	a();*/
+	/*var o = {
+        user:"追梦子",
+	    fn:function(){
+	    	console.log(user);
+	        //console.log(this.user);  //追梦子
+	    }
+    }
+    o.fn();*/
+    function fn()  
+	{  
+	    this.user = '追梦子';  
+	    return {};  
+	}
+	var a = new fn;  
+	console.log(a.user); //undefined
+
+	//
+	function fn1()  
+	{  
+	    this.user = '追梦子';  
+	    return function(){};
+	}
+	var a = new fn1;  
+	console.log(a.user); //undefined
+    //
+    function fn2()  
+	{  
+	    this.user = '追梦子';  
+	    return 1;
+	}
+	var a = new fn2;  
+	console.log(a.user); //追梦子
+
+	//
+	function fn4()  
+	{  
+	    this.user = '追梦子';  
+	    return undefined;
+	}
+	var a = new fn4;  
+	console.log(a.user); //追梦子
+
+	//如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。
+
+	//
+	function fn5()  
+	{  
+	    this.user = '追梦子';  
+	    return undefined;
+	}
+	var a = new fn5;  
+	console.log(a); //fn {user: "追梦子"}
+    
+    //null是对象 但是这里的this指向那个函数的实例
+	function fn6()  
+	{  
+	    this.user = '追梦子';  
+	    return null;
+	}
+	var a = new fn6;  
+	console.log(a.user); //追梦子
+
+	//
+	function fn7(){
+	    this.num = 1;
+	}
+	var a = new fn7();
+	console.log(fn7); //返回的是个fn7函数
+	console.log(a.num) //返回的是 一个对象 
+</script>
 </html>

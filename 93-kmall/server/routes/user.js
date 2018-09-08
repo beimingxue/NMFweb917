@@ -10,7 +10,7 @@ const hmac = require('../util/hmac.js')
 
 const router = Router();
 
-router.get('/init',(req,res)=>{
+/*router.get('/init',(req,res)=>{
 	const users = [];
 
 	for(let i = 0;i<100;i++){
@@ -27,7 +27,7 @@ router.get('/init',(req,res)=>{
 		res.send('ok');
 	})
 
-})
+})*/
 
 
 //注册用户
@@ -43,7 +43,7 @@ router.post("/register",(req,res)=>{
 	.findOne({username:body.username})
 	.then((user)=>{
 		if(user){//已经有该用户
-			 result.code = 10;
+			 result.code = 1;
 			 result.message = '用户已存在'
 			 res.json(result);
 		}else{
@@ -57,7 +57,7 @@ router.post("/register",(req,res)=>{
 				if(!err){//插入成功
 					res.json(result)
 				}else{
-					result.code = 10;
+					result.code = 1;
 					result.message = '注册失败'
 					res.json(result);					
 				}
@@ -96,7 +96,7 @@ router.post("/login",(req,res)=>{
 
 			 res.json(result);
 		}else{
-			result.code = 10;
+			result.code = 1;
 			result.message = '用户名和密码错误'
 			res.json(result);
 		}
