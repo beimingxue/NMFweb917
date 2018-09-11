@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new 关键字</title>
+	<script>
+		function show(){
+			//1. this = new Object ;  new 会在show函数里首先创建一个新的 object  这个new object指向 this
+			console.log('1:',this);
+			//2. return this new会自动return
+			//return this;
+		}
+	    //show(); //window
+	    //new show(); //对象
+
+		var res = new show();
+		console.log('2:',res);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

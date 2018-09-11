@@ -4,14 +4,50 @@
 	<meta charset="UTF-8">
 	<title>用函数创建对象</title>
 	<script>
-		function creatPerson(name,age){
-			/*var obj = new Object();*/  //定义对象
+		//原材料 加工 返回
+		function creatobj(name,age){   //(name,age) 相当于要求
+             var obj = new Object();  // 相当于原材料
+              
+             //加工
+             obj.name = name;
+             obj.age = age;
+             
+             obj.showName = function(){
+             	 console.log('I am ' +  obj.name);
+             }
+             obj.showAge = function(){
+             	console.log('I am ' +  obj.age + ' years old');
+             }
+             
+             //返回
+             return obj;
+		}
+		var p1 = new creatobj('tom',18);
+		console.log(p1);
+		p1.showName();
+		p1.showAge();
+		var p2 = new creatobj('tom',18);
+		console.log(p2);
+		p2.showName();
+		p2.showAge();
 
+		console.log(p1.showName == p2.showName);
+
+		// var jsons = '{"name":tom,"age":18}';
+		// console.log(typeof jsons);
+		// console.log(jsons);
+		// var objs = {name:'tom',age:18};
+		// console.log(typeof objs);
+		// console.log(objs);
+
+		function creatPerson(name,age){
+			//var obj = new Object();  //定义对象
+         
 			this.name = name;   
 			this.age = age;
-            this.showName = showName;
+            this.showName = showName;    //p1.showName 调用时候 指向this.showName 然后this.showName又指向了 全局的this.showName函数
             this.showAge = showAge;
-           /* return obj; */ //返回
+           // return obj;  //返回
 		}
          this.showName = function(){
             	console.log('I am ' + this.name);
@@ -19,14 +55,14 @@
          this.showAge = function(){
          	console.log('I am ' + this.age + ' years old');
          }  
-		var p1 =  new creatPerson("tom",10);
-		p1.showName();
-		p1.showAge();
+		var p3 =  new creatPerson("tom",10);
+		p3.showName();
+		p3.showAge();
 		//console.log(typeof p1);
-		var p2 =  new creatPerson("amy",20);
-		p2.showName();
-		p2.showAge();
-		//console.log(p1.showName == p2.showName);
+		var p4 =  new creatPerson("amy",20);
+		p4.showName();
+		p4.showAge();
+		console.log(p3.showName == p4.showName);
 	</script>
 </head>
 <body>

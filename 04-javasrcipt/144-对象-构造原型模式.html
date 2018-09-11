@@ -4,12 +4,28 @@
 	<meta charset="UTF-8">
 	<title>构造原型模式</title>
 	<script>
-		var arr = new Array(1,2,3);
 		Array.prototype.sum = function(){
-			for(var i=0; i<arr.length; i++){
-				console.log(Array.prototype.sum);
+			var result =0;
+			for(var i=0; i<this.length;i++){
+                 result += this[i];
 			}
+			return result;
 		}
+		
+		var arr = new Array(1,2,3);
+		
+		/*arr.sum = function(){
+			var result =0;
+			for(var i=0; i<this.length;i++){
+                 result += this[i];
+			}
+			return result;
+		}*/
+
+		console.log(arr.sum());
+
+		var arr2 = new Array(1,2,3,4);
+		console.log(arr2.sum());
 
 	</script>
 </head>

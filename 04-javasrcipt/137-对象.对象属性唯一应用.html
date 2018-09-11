@@ -4,20 +4,30 @@
 	<meta charset="UTF-8">
 	<title>137-对象-对象属性唯一应用.html</title>
 	<script>
-		var arr = [11,22,33,44,22,11,55];
+		var arr = [11,22,33,44,22,11,55,66];
 		function removeDup(arr){
 			var result = [];
-			var obj = {};
+			var obj = {}; //定义一个空对象obj 
 			for(var i = 0;i < arr.length;i++){
-				obj[arr[i]] = '';
+				obj[arr[i]] = ''; //对象里的属性是唯一的 不会重复
 			}
-			for(key in obj){
+			console.log('a:',obj);
+			for(var key in obj){
 				result.push(key);
 			}
+			//console.log('key:',key);
+			console.log('b:',result);
 			return result;
 		}
 		console.log(arr);
 		console.log(removeDup(arr));
+		//数组arr[] 
+		var arr2 = [1,2,3,4,5,4,3,2,9,10,11];
+		var obj2 = {};
+		for(var j=0;j<arr2.length;j++){
+			obj2[arr2[j]] = ''
+		}
+		console.log('s:',obj2);
 	</script>
 </head>
 <body>
