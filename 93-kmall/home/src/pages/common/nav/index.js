@@ -24,7 +24,13 @@ var nav ={
         })
     },
     loadUserInfo:function(){
-
+        _user.getUserInfo(function(user){
+            $('.not-login').hide();
+            $('.login')
+            .show()
+            .find('.username')
+            .text(user.username)
+        })
     },  
     loadCartInfo:function(){
 

@@ -30,6 +30,9 @@ var _util = {
 	doLogin:function(){
         window.location.href = './user-login.html';		
 	},
+    goHome:function(){
+        window.location.href = '/'
+    },
     validate:function(value,type){
         //console.log('isgetin');
         var value = $.trim(value);

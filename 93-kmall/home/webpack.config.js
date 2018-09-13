@@ -22,7 +22,8 @@ module.exports = {
 	entry:{
         'common':'./src/pages/common/index.js',
         'index':'./src/pages/index/index.js',
-        'user-login':'./src/pages/user-login/index.js'
+        'user-login':'./src/pages/user-login/index.js',
+        'user-register':'./src/pages/user-register/index.js'
     },
     //配置额外模块
     externals:{
@@ -89,7 +90,8 @@ module.exports = {
   },
   plugins: [
   	new HtmlWebpackPlugin(getHtmlConfig('index')),
-    new HtmlWebpackPlugin(getHtmlConfig('user-login')),    
+    new HtmlWebpackPlugin(getHtmlConfig('user-login')), 
+    new HtmlWebpackPlugin(getHtmlConfig('user-register')),       
   	new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
         filename:'css/[name].css'

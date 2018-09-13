@@ -1,9 +1,3 @@
-/*
-* @Author: Tom
-* @Date:   2018-08-06 09:23:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2018-08-27 10:53:59
-*/
 const Router = require('express').Router;
 const UserModel = require('../models/user.js');
 const hmac = require('../util/hmac.js')
@@ -103,6 +97,55 @@ router.post("/login",(req,res)=>{
 	})
 
 })
+
+router.get("/username",(req,res)=>{
+	if(req.userInfo._id){
+		res.json({
+			code:0,
+			data:{
+				username:req.userInfo.username
+			}
+		})
+	}else{
+		res.json({
+			code:1
+		});
+	}
+});
+
+router.get("/checkUsername",(req,res)=>{
+	let username = req.query.username;
+	UserModel
+	.findOne({username:username})
+	.then((user)=>{
+		if(user){
+			res.json({
+				code:1,
+				message:'用户名已存在'
+			})
+		}else{
+			res.json({
+				code:0,
+			})
+		}
+	})
+});
+//获取用户信息
+router.get("/userInfo",(req,res)=>{
+	//console.log('userInfo??');
+	if(req.userInfo._id){
+		res.json({
+				code:0,
+				data:req.userInfo
+			})
+	}else{
+		res.json({
+			code:1
+		});
+	}
+});
+
+//权限控制
 router.use((req,res,next)=>{
 	if(req.userInfo._id){
 		next()
@@ -112,6 +155,10 @@ router.use((req,res,next)=>{
 		})
 	}
 })
+
+
+
+
 //退出
 router.get('/logout',(req,res)=>{
 	let result  = {
@@ -126,5 +173,6 @@ router.get('/logout',(req,res)=>{
 	res.json(result);
 
 })
+
 
 module.exports = router;
