@@ -33,6 +33,16 @@ var _util = {
     goHome:function(){
         window.location.href = '/'
     },
+    getParamFromUrl:function(key){
+        var query = window.location.search.substr(1);
+        var reg = new RegExp('(^|&)'+key+'=([^&]*)(&|$)');
+        var result = query.match(reg);
+        console.log(query)
+        console.log('reg',reg)
+        console.log('result',result)
+        return result ? decodeURIComponent(result[2]) : null;
+
+    },
     validate:function(value,type){
         //console.log('isgetin');
         var value = $.trim(value);

@@ -44,6 +44,8 @@ router.post("/register",(req,res)=>{
 			//插入数据到数据库
 			new UserModel({
 				username:body.username,
+				phone:body.phone,
+				email:body.email,
 				password:hmac(body.password),
 				// isAdmin:true
 			})

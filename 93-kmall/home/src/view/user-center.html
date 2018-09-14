@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<%= require('html-loader!./common/header.html') %>
+	<title>
+		<%= htmlWebpackPlugin.options.title %> - KMALL电商平台
+	</title>
+</head>
+<body>
+	<%= require('html-loader!./common/nav.html') %>
+	<%= require('html-loader!./common/search.html') %>
+	<div class="user-page-wrap">
+		<div class="container clearfix">
+			<ul class="side">
+				<li class="side-item active">
+					<a href="./user-center.html" class="link">个人中心</a>
+				</li>
+				<li class="side-item">
+					<a href="./order-list.html" class="link">我的订单</a>
+				</li>
+				<li class="side-item">
+					<a href="./user-update-password.html" class="link">修改密码</a>
+				</li>
+			</ul>
+			<div class="content">ddds</div>
+		</div>
+	</div>
+
+
+	<%= require('html-loader!./common/footer.html') %>
+</body>
+</html>
