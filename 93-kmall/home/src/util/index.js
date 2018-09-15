@@ -1,3 +1,4 @@
+var Hogan = require('hogan.js');
 var _util = {
 	request:function(params){
 		var _this = this;
@@ -42,6 +43,11 @@ var _util = {
         console.log('result',result)
         return result ? decodeURIComponent(result[2]) : null;
 
+    },
+    render:function(tpl,data){
+        var template = Hogan.compile(tpl);
+        var html = template.render(data);
+        return html;
     },
     validate:function(value,type){
         //console.log('isgetin');
