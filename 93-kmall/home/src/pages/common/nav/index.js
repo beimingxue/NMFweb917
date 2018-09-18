@@ -10,7 +10,7 @@ var _util = require('util')
 var nav ={
     init:function(){
        this.bindEvent();
-       this.loadUserInfo();
+       this.loadUsername();
        this.loadCartInfo();
        return this;
     },
@@ -23,8 +23,8 @@ var nav ={
             });
         })
     },
-    loadUserInfo:function(){
-        _user.getUserInfo(function(user){
+    loadUsername:function(){
+        _user.getUsername(function(user){
             $('.not-login').hide();
             $('.login')
             .show()

@@ -1,0 +1,9 @@
+<view class='container'>
+  <view class='userinfo'>
+     <image class='userinfo-image' src='/images/nazz/me.jpg'></image>
+     <text class='userinfo-txt'>Nazz</text>
+  </view>
+  <view class='usermotto' bindtap="toArticle">
+     <text class='user-text'>啦啦啦</text>
+  </view>
+</view>

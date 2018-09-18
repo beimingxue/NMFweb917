@@ -1,0 +1,11 @@
+/* pages/article/index.wxss */
+
+swiper{
+  width: 100%;
+}
+swiper-item{
+  width: 100%; 
+}
+swiper-item image{
+  width: 100%;
+}

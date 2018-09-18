@@ -13,10 +13,10 @@ var _util = {
                      params.success && params.success(result.data);
                 }//没有登陆
                 else if(result.code == 10){
-                	//_this.doLogin();
+                	_this.doLogin();
                 }//请求失败
-                else{ 
-                    params.error && params.error(result.message);
+                else if(result.code == 1){
+                    params.error && params.error(result.message)
                 }
         	 },
         	 error:function(err){
@@ -29,7 +29,7 @@ var _util = {
 		alert(msg)
 	},
 	doLogin:function(){
-        window.location.href = './user-login.html';		
+        window.location.href = './user-login.html?redirect='+encodeURIComponent(window.location.href)
 	},
     goHome:function(){
         window.location.href = '/'

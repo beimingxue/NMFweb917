@@ -115,6 +115,35 @@ router.get("/username",(req,res)=>{
 	}
 });
 
+//权限控制
+router.use((req,res,next)=>{
+	if(req.userInfo._id){
+		next()
+	}else{
+		res.json({
+			code:10
+		})
+	}
+})
+
+
+//获取用户信息
+router.get("/userInfo",(req,res)=>{
+	if(req.userInfo._id){
+		UserModel.findById(req.userInfo._id,"username phone email")
+		.then(user=>{
+			res.json({
+				code:0,
+				data:user
+			})
+		})
+	}else{
+		res.json({
+			code:1
+		});
+	}
+});
+
 router.get("/checkUsername",(req,res)=>{
 	let username = req.query.username;
 	UserModel
@@ -132,31 +161,8 @@ router.get("/checkUsername",(req,res)=>{
 		}
 	})
 });
-//获取用户信息
-router.get("/userInfo",(req,res)=>{
-	//console.log('userInfo??');
-	if(req.userInfo._id){
-		res.json({
-				code:0,
-				data:req.userInfo
-			})
-	}else{
-		res.json({
-			code:1
-		});
-	}
-});
 
-//权限控制
-router.use((req,res,next)=>{
-	if(req.userInfo._id){
-		next()
-	}else{
-		res.json({
-			code:10
-		})
-	}
-})
+
 
 
 

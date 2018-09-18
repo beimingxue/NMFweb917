@@ -1,4 +1,5 @@
 require('./index.css');
+var tpl = require('./index.tpl');
 var _util = require('util');
 
 var Hogan = require('hogan.js');
@@ -10,9 +11,16 @@ var side ={
 	],
     render:function(name){
     	//console.log(name)
-        var tmp = '<div>{{data}}</div>';
-        var html = _util.render(tmp,{data:123});
-        console.log(html)
+        //var tmp = '<div>{{data}}</div>';
+        for(var i=0;i<this.list.length;i++){
+            if(this.list[i].name == name){
+                this.list[i].isActive = true
+            }
+        }
+        var html = _util.render(tpl,{
+            list:this.list
+        });
+        $('.side').html(html);
     }
 }
 

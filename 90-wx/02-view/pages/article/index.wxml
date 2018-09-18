@@ -1,0 +1,9 @@
+<!--pages/article/index.wxml-->
+<swiper>
+ <swiper-item>
+    <image src='../../images/nazz/s1.jpg'></image>
+ </swiper-item>
+ <swiper-item>
+    <image src='../../images/nazz/s2.jpg'></image>
+ </swiper-item>
+</swiper>
