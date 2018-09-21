@@ -1,5 +1,5 @@
 /* pages/article/index.wxss */
-
+@import './article-item-template/article-item-template.wxss';
 swiper{
   width: 100%;
 }

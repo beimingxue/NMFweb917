@@ -1,0 +1,19 @@
+<template name="articleItem">
+  <view class='article-item'>
+    <view class='article-head'>
+      <image class='article-head-img' src='{{head}}'></image>
+      <text class='article-head-text'>{{data}}</text>
+    </view>
+    <view class='article-title'>
+      <text class='article-title-text'>{{title}}</text>
+      <image class='article-title-img' src='{{img}}'></image>
+      <text class='article-title-main'>{{description}}</text>
+    </view>
+    <view class='article-footer'>
+      <image class='article-footer-img' src='../../images/nazz/good.jpg'></image>
+      <text class='article-footer-text'>{{good}}</text>
+      <image class='article-footer-img' src='../../images/nazz/eye.jpg'></image>
+      <text class='article-footer-text'>{{view}}</text>
+    </view>
+  </view>
+  </template>

@@ -1,23 +1,36 @@
 // pages/article/index.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+var { articles } = require('../../data/db.js');
 
-  },
+Page({
 
   /**
-   * 组件的初始数据
+   * 页面的初始数据
    */
   data: {
-
+   
   },
 
   /**
-   * 组件的方法列表
+   * 生命周期函数--监听页面加载
    */
-  methods: {
-
+  onLoad: function (options) {
+    //console.log('onLoad')
+   
+    //var _this = this;
+    this.setData({
+       articles: articles
+    })
+    //console.log('a:::',this.data);
+  },
+   /**
+   * 点击跳转到详细页面
+   */
+  tapArticleItem:function(event){
+     //console.log(event);
+    var articleId = event.currentTarget.dataset.articleId;
+     wx.navigateTo({
+       url: 'article-detail/article-detail?articleId=' + articleId,
+     })
   }
+ 
 })

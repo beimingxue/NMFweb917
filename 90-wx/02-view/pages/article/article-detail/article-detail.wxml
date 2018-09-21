@@ -1,0 +1,28 @@
+<!--pages/article/article-detail/article-detail.wxml-->
+<view>
+   <view class='article-detail-img'>
+     <image class='article-detail-img-main' src='{{img}}'>
+     </image>
+     <image catchtap='tapMusic' class='article-detail-img-music' src='/images/nazz/music.jpg'>
+     </image>
+   </view>
+   <view class='article-detail-head'>
+      <image class='article-detail-head-avatar' src='{{head}}'></image>
+      <text class='article-detail-head-name'>{{author}}</text>
+      <text class='article-detail-head-text'>发表于</text>
+      <text class='article-detail-head-time'>{{time}}</text>
+   </view>
+
+   <text class='article-detail-title'>123dsad</text>
+
+   <view class='article-detail-opreation'>
+      <image wx:if="{{currentIsCollected}}" catchtap='tapCollection' src='/images/nazz/good.jpg' class='article-detail-opreation-collection'></image>
+      <image wx:else catchtap='tapCollection' src='/images/nazz/collection-none.png' class='article-detail-opreation-collection'></image>
+
+      <image catchtap='tapShare' src='/images/nazz/share.jpg' class='article-detail-opreation-share'></image>
+
+      <view class='article-detail-opreation-line'></view>
+   </view>
+   
+   <text class='article-detail-content'>{{content}}</text>
+</view>

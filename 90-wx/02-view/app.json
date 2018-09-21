@@ -1,8 +1,10 @@
 {
   "pages":[
     "pages/article/index",
-    "pages/index/index"
+    "pages/article/article-detail/article-detail",
     
+    "pages/index/index"
+   
   ],
   "window": {
     "navigationBarBackgroundColor": "#666"
